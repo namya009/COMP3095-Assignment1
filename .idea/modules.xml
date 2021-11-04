@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Recipe Project.iml" filepath="$PROJECT_DIR$/Recipe Project.iml" />
+      <module fileurl="file://$PROJECT_DIR$/recipe-data/recipe-data.iml" filepath="$PROJECT_DIR$/recipe-data/recipe-data.iml" />
+      <module fileurl="file://$PROJECT_DIR$/recipe-web/recipe-web.iml" filepath="$PROJECT_DIR$/recipe-web/recipe-web.iml" />
     </modules>
   </component>
 </project>

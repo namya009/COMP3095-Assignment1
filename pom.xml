@@ -5,6 +5,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>recipe-data</module>
+        <module>recipe-web</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

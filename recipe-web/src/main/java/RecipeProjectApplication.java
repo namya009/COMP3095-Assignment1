@@ -1,5 +1,3 @@
-package ca.gbc.comp3095.recipe_project;
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
