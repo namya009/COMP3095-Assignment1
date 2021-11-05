@@ -4,16 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="422c838b-5283-46c4-8d37-aed7be85315a" name="Changes" comment="re init2">
-      <change afterPath="$PROJECT_DIR$/recipe-web/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="5f7425b1-4759-4ba3-ae95-3d3cc965e3d3" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.jpb/persistence-units.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" afterPath="$PROJECT_DIR$/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/recipe-data/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-data/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ca/gbc/comp3095/recipe_project/RecipeProjectApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-web/src/main/java/RecipeProjectApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ca/gbc/comp3095/recipe_project/RecipeProjectApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipe-web/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-web/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipe-web/src/main/java/RecipeProjectApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-web/src/main/java/RecipeProjectApplication.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +36,8 @@
     </option>
     <option name="myId2Visible">
       <map>
-        <entry key="JPA Inspector" value="true" />
+        <entry key="JPA Inspector" value="false" />
+        <entry key="JPA Palette" value="false" />
         <entry key="JPA Structure" value="false" />
       </map>
     </option>
@@ -45,7 +49,10 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectId" id="20T8E5UUBRBVtEgLE1JD8FITrQB" />
+  <component name="ProblemsViewState">
+    <option name="selectedIndex" value="1" />
+  </component>
+  <component name="ProjectId" id="20QVI0nRGlP6vKltHV8j36BmYbt" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
@@ -54,7 +61,6 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
@@ -62,124 +68,61 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="jdk.selected.JAVA_MODULE" value="11" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/recipe-web/src/main/java" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../Study/comp3095_Web java/COMP3095-Assignment1" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
   </component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Study\comp3095_Web java\COMP3095-Assignment1\recipe-web\src\main\java" />
-      <recent name="C:\Study\comp3095_Web java\COMP3095-Assignment1\recipe-data\src\main\java" />
-      <recent name="C:\Study\comp3095_Web java\COMP3095-Assignment1" />
-      <recent name="C:\Study\comp3095_Web java\COMP3095-Assignment1\recipe-data\src\main\resources" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Study\comp3095_Web java\COMP3095-Assignment1\recipe-data" />
-    </key>
-  </component>
-  <component name="RunManager" selected="Spring Boot.RecipeProjectApplication">
-    <configuration name="All in recipe-data" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="recipe-data" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="All in recipe-web (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RecipeApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="recipe-web" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="All in recipe-web" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
-      <module name="recipe-web" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="RecipeProjectApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="Recipe Project" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="ca.gbc.comp3095.recipe_project.RecipeProjectApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ca.gbc.comp3095.recipe.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="ca.gbc.comp3095.recipe.RecipeApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.All in recipe-web (1)" />
-        <item itemvalue="JUnit.All in recipe-data" />
+        <item itemvalue="Spring Boot.RecipeApplication" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="422c838b-5283-46c4-8d37-aed7be85315a" name="Changes" comment="" />
-      <created>1636057106015</created>
+      <changelist id="5f7425b1-4759-4ba3-ae95-3d3cc965e3d3" name="Changes" comment="" />
+      <created>1635976715967</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1636057106015</updated>
-      <workItem from="1636057107311" duration="56000" />
-      <workItem from="1636057271267" duration="1382000" />
+      <updated>1635976715967</updated>
+      <workItem from="1635976717154" duration="284000" />
+      <workItem from="1636052044772" duration="3278000" />
+      <workItem from="1636056652723" duration="1900000" />
     </task>
-    <task id="LOCAL-00001" summary="re init">
-      <created>1636057306651</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1636057306651</updated>
-    </task>
-    <task id="LOCAL-00002" summary="re init2">
-      <created>1636057887267</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1636057887267</updated>
-    </task>
-    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="master" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="re init" />
-    <MESSAGE value="re init2" />
-    <option name="LAST_COMMIT_MESSAGE" value="re init2" />
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

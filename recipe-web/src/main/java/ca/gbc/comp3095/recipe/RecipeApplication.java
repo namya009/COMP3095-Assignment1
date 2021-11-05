@@ -1,12 +1,13 @@
+package ca.gbc.comp3095.recipe;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class RecipeProjectApplication {
+public class RecipeApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(RecipeProjectApplication.class, args);
+        SpringApplication.run(RecipeApplication.class, args);
     }
 
 }
