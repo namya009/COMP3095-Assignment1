@@ -1,9 +1,15 @@
 /**********************************************************************************
- * Project: < comp3095_assignment1 >
- * Assignment: < assignment 1 >
- * Author(s): < Calvin Pierce>
- * Student Number: < 101253832 >
- * Date: November 1st 2021
+ * Project: Recipe Project
+ * Assignment: Assignment 1
+ * Author(s): Namya Patel
+ *            Pruthvi Soni
+ *            Prishita Ribadia
+ *            Sahay Patel
+ * Student ID: 101281322
+ *             101276714
+ *             101284685
+ *             101283555
+ * Date: 4th Nov
  * Description: This java file is used to control our pages for non-registered users.
  **********************************************************************************/
 package ca.gbc.comp3095.recipe.controllers;
