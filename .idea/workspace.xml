@@ -4,19 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f7425b1-4759-4ba3-ae95-3d3cc965e3d3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+    <list default="true" id="5f7425b1-4759-4ba3-ae95-3d3cc965e3d3" name="Changes" comment="half done">
+      <change afterPath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/model2/CookingMethod.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/model2/FavoriteRecipe.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/model2/Ingredient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/model2/Recipe.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/model2/RecipeType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/model2/Unit.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" afterPath="$PROJECT_DIR$/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe-data/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-data/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe-web/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-web/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe-web/src/main/java/RecipeProjectApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-web/src/main/java/RecipeProjectApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipe-web/src/main/java/RecipeProjectApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipe-web/src/main/java/ca/gbc/comp3095/recipe/controllers/IndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-web/src/main/java/ca/gbc/comp3095/recipe/controllers/IndexController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,9 +46,6 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProblemsViewState">
-    <option name="selectedIndex" value="1" />
-  </component>
   <component name="ProjectId" id="20QVI0nRGlP6vKltHV8j36BmYbt" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -61,6 +55,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="h2" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
@@ -68,11 +63,17 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../Study/comp3095_Web java/COMP3095-Assignment1" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/recipe-web/src/main/resources/templates/new" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Study\comp3095_Web java\COMP3095-Assignment1\recipe-web\src\main\resources\templates\new" />
+      <recent name="C:\Study\comp3095_Web java\COMP3095-Assignment1\recipe-data\src\main\java\ca\gbc\comp3095\recipe" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
@@ -116,13 +117,35 @@
       <workItem from="1635976717154" duration="284000" />
       <workItem from="1636052044772" duration="3278000" />
       <workItem from="1636056652723" duration="1900000" />
+      <workItem from="1636139268206" duration="3799000" />
     </task>
+    <task id="LOCAL-00001" summary="half done">
+      <created>1636139354252</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1636139354252</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="half done" />
+    <option name="LAST_COMMIT_MESSAGE" value="half done" />
   </component>
 </project>
