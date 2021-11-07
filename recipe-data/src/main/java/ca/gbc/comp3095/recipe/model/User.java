@@ -19,10 +19,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import javax.persistence.JoinTable;
-import javax.persistence.JoinColumn;
-import javax.persistence.CascadeType;
-import javax.persistence.FetchType;
 import javax.persistence.Column;
 import java.util.HashSet;
 import java.util.Objects;
@@ -33,53 +29,44 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
     private String firstName;
     private String lastName;
-    private String address;
-    private String postalCode;
+    private String emailId;
     @Column(unique = true)
     private String username;
     private String password;
-    private boolean enabled;
-
     @ManyToMany(mappedBy = "likedByUsers")
     private Set<Recipe> likedRecipes = new HashSet<>();
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinTable(name = "users_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private Set<Role> roles = new HashSet<>();
 
     public User() {
     }
 
-    public User(Long id, String firstName, String lastName, String address, String postalCode, String username, String password) {
+    public User(int id, String firstName, String lastName, String emailId, String username, String password) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.address = address;
-        this.postalCode = postalCode;
+        this.emailId = emailId;
         this.username = username;
         this.password = password;
     }
 
-    public User(Long id, String firstName, String lastName, String address, String postalCode, String username, String password, Set<Recipe> likedRecipes, Set<Role> roles) {
+    public User(int id, String firstName, String lastName, String emailId, String username, String password, Set<Recipe> likedRecipes) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.address = address;
-        this.postalCode = postalCode;
+        this.emailId = emailId;
         this.username = username;
         this.password = password;
         this.likedRecipes = likedRecipes;
-        this.roles = roles;
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -99,20 +86,12 @@ public class User {
         this.lastName = lastName;
     }
 
-    public String getAddress() {
-        return address;
+    public String getEmailId() {
+        return emailId;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getPostalCode() {
-        return postalCode;
-    }
-
-    public void setPostalCode(String postalCode) {
-        this.postalCode = postalCode;
+    public void setEmailId(String emailId) {
+        this.emailId = emailId;
     }
 
     public String getUsername() {
@@ -139,35 +118,6 @@ public class User {
         this.likedRecipes = likedRecipes;
     }
 
-    public Set<Role> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
-    }
-
-    public boolean isEnabled() {
-        return enabled;
-    }
-
-    public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", address='" + address + '\'' +
-                ", postalCode='" + postalCode + '\'' +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", likedRecipes=" + likedRecipes +
-                '}';
-    }
 
     @Override
     public boolean equals(Object o) {

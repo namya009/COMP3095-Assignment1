@@ -15,7 +15,6 @@
 package ca.gbc.comp3095.recipe.controllers;
 
 import ca.gbc.comp3095.recipe.model.User;
-import ca.gbc.comp3095.recipe.repositories.RoleRepository;
 import ca.gbc.comp3095.recipe.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
@@ -36,8 +35,6 @@ public class IndexController {
     @Autowired
     private UserRepository userRepository;
 
-    @Autowired
-    private RoleRepository roleRepository;
 
     @RequestMapping({"/register", "register.html"})
     public String index(Model model) {
@@ -51,8 +48,6 @@ public class IndexController {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String encodedPassword = passwordEncoder.encode(user.getPassword());
         user.setPassword(encodedPassword);
-        user.setRoles(new HashSet<>(roleRepository.findByName("user")));
-        user.setEnabled(true);
         userRepository.save(user);
         return "/login";
     }

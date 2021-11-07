@@ -4,16 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f7425b1-4759-4ba3-ae95-3d3cc965e3d3" name="Changes" comment="half done">
-      <change afterPath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/model2/CookingMethod.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/model2/FavoriteRecipe.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/model2/Ingredient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/model2/Recipe.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/model2/RecipeType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/model2/Unit.java" afterDir="false" />
+    <list default="true" id="5f7425b1-4759-4ba3-ae95-3d3cc965e3d3" name="Changes" comment="registration, login, create, search half done.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe-web/src/main/java/RecipeProjectApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/config/MyUserDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/config/MyUserDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/model/Role.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/model2/CookingMethod.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/model2/FavoriteRecipe.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/model2/Ingredient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/model2/Recipe.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/model2/RecipeType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/model2/Unit.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/repositories/RoleRepository.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/recipe-web/src/main/java/ca/gbc/comp3095/recipe/controllers/IndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-web/src/main/java/ca/gbc/comp3095/recipe/controllers/IndexController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipe-web/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-web/src/main/resources/data.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +49,9 @@
         <option name="mavenHome" value="Use Maven wrapper" />
       </MavenGeneralSettings>
     </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedIndex" value="1" />
   </component>
   <component name="ProjectId" id="20QVI0nRGlP6vKltHV8j36BmYbt" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -117,7 +124,7 @@
       <workItem from="1635976717154" duration="284000" />
       <workItem from="1636052044772" duration="3278000" />
       <workItem from="1636056652723" duration="1900000" />
-      <workItem from="1636139268206" duration="3799000" />
+      <workItem from="1636139268206" duration="13088000" />
     </task>
     <task id="LOCAL-00001" summary="half done">
       <created>1636139354252</created>
@@ -126,7 +133,21 @@
       <option name="project" value="LOCAL" />
       <updated>1636139354252</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="registration, login, create, search half done.">
+      <created>1636231401924</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1636231401924</updated>
+    </task>
+    <task id="LOCAL-00003" summary="registration, login, create, search half done.">
+      <created>1636231431165</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1636231431165</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -146,6 +167,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="half done" />
-    <option name="LAST_COMMIT_MESSAGE" value="half done" />
+    <MESSAGE value="registration, login, create, search half done." />
+    <option name="LAST_COMMIT_MESSAGE" value="registration, login, create, search half done." />
   </component>
 </project>
