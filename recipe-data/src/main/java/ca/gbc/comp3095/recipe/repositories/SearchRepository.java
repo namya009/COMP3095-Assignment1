@@ -10,10 +10,11 @@
  *             101284685
  *             101283555
  * Date: 4th Nov
- * Description: This java file is used to search recipes in our app.
+ * Description: This java file is used to search from tables in our app.
  **********************************************************************************/
 package ca.gbc.comp3095.recipe.repositories;
 
+import ca.gbc.comp3095.recipe.model.Meal;
 import ca.gbc.comp3095.recipe.model.Recipe;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -26,4 +27,7 @@ public interface SearchRepository extends JpaRepository<Recipe, Long> {
 
     @Query("SELECT r FROM Recipe r WHERE user_id LIKE %?1%")
     List<Recipe> searchAllForUser(String id);
+
+    @Query("SELECT m FROM Meal m WHERE user_id LIKE %?1%")
+    List<Meal> searchMeal(String id);
 }

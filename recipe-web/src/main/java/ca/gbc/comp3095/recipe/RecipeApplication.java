@@ -10,7 +10,7 @@
  *             101284685
  *             101283555
  * Date: 4th Nov
- * Description: This java file is used to control all pages available to registered users.
+ * Description: This java file is controls everything.
  **********************************************************************************/
 package ca.gbc.comp3095.recipe;
 
@@ -22,6 +22,9 @@ public class RecipeApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(RecipeApplication.class, args);
+        //Every default details are in admin.
+        //username=admin,pass=admin.
+
     }
 
 }

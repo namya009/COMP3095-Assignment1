@@ -9,8 +9,8 @@
  *             101276714
  *             101284685
  *             101283555
- * Date: 4th Nov
- * Description: This java file is used to control our pages for non-registered users.
+ * Date: 7th Nov
+ * Description: This file is used to control our pages for non-registered users.
  **********************************************************************************/
 package ca.gbc.comp3095.recipe.controllers;
 
@@ -27,14 +27,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import java.util.HashSet;
 
 @Controller
 public class IndexController {
 
     @Autowired
     private UserRepository userRepository;
-
 
     @RequestMapping({"/register", "register.html"})
     public String index(Model model) {

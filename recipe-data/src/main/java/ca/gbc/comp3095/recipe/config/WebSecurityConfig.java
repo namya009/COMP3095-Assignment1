@@ -10,8 +10,7 @@
  *             101284685
  *             101283555
  * Date: 4th Nov
- * Description: This java file is used to set the securities making any page that requires
- * a registered user restricted to non-registered users.
+ * Description: This file prevents a non-registered user to use our site
  **********************************************************************************/
 package ca.gbc.comp3095.recipe.config;
 

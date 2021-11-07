@@ -10,11 +10,11 @@
  *             101284685
  *             101283555
  * Date: 4th Nov
- * Description: This java file is used to set the user in the security login so,
- * they can properly use application once logged in.
+ * Description: This file grants user access to files that are not for public viewings.
  **********************************************************************************/
 
 package ca.gbc.comp3095.recipe.config;
+
 import ca.gbc.comp3095.recipe.model.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -49,9 +49,10 @@ public class MyUserDetails implements UserDetails {
         return user.getUsername();
     }
 
-    public String getName(){
-        return user.getFirstName()+" "+user.getLastName();
+    public String getName() {
+        return user.getFirstName() + " " + user.getLastName();
     }
+
     @Override
     public boolean isAccountNonExpired() {
         return true;
@@ -68,5 +69,7 @@ public class MyUserDetails implements UserDetails {
     }
 
     @Override
-    public boolean isEnabled() { return true; }
+    public boolean isEnabled() {
+        return true;
+    }
 }

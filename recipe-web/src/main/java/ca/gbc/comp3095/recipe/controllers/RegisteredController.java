@@ -10,12 +10,13 @@
  *             101284685
  *             101283555
  * Date: 4th Nov
- * Description: This java file is used to control all pages available to registered users.
+ * Description: This file is used to control all pages available to registered users.
  **********************************************************************************/
 package ca.gbc.comp3095.recipe.controllers;
 
+import ca.gbc.comp3095.recipe.model.Meal;
 import ca.gbc.comp3095.recipe.model.Recipe;
-import ca.gbc.comp3095.recipe.model.User;
+import ca.gbc.comp3095.recipe.repositories.MealRepository;
 import ca.gbc.comp3095.recipe.repositories.RecipeRepository;
 import ca.gbc.comp3095.recipe.repositories.UserRepository;
 import ca.gbc.comp3095.recipe.services.SearchService;
@@ -31,12 +32,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import javax.servlet.http.HttpServletRequest;
 import java.util.*;
 
+
 @RequestMapping("/registered")
 @Controller
 public class RegisteredController {
 
     @Autowired
     RecipeRepository recipeRepository;
+
+    @Autowired
+    MealRepository mealRepository;
 
     @Autowired
     UserRepository userRepository;
@@ -48,7 +53,8 @@ public class RegisteredController {
     ViewService viewService;
 
     @RequestMapping({"", "/", "index", "index.html"})
-    public String index() {
+    public String index(Model model,Authentication authentication) {
+        model.addAttribute("uName",userRepository.findByUsername(authentication.getName()).getFirstName()+" "+userRepository.findByUsername(authentication.getName()).getLastName());
         return "registered/index";
     }
 
@@ -57,6 +63,17 @@ public class RegisteredController {
         Recipe recipe = new Recipe();
         model.addAttribute("recipe", recipe);
         return "registered/create-recipe";
+    }
+    @RequestMapping({"/create-plan", "create-plan.html"})
+    public String createPlan(Model model, Recipe recipe,HttpServletRequest request) {
+        String recipeId=request.getParameter("recipeId");
+        Meal meal=new Meal();
+        System.out.println(recipeId);
+        System.out.print(recipe.getRecipeName());
+        model.addAttribute("recipe",recipe);
+        model.addAttribute("meal", meal);
+
+        return "registered/create-plan";
     }
 
     @PostMapping(value = "/save")
@@ -68,8 +85,23 @@ public class RegisteredController {
         return "/registered/index";
     }
 
+    @PostMapping(value = "/save-meal")
+    public String save(Meal meal, Authentication authentication) {
+        meal.setUser(userRepository.findByUsername(authentication.getName()));
+
+        mealRepository.save(meal);
+        return "/registered/index";
+    }
+
     @RequestMapping({"/plan", "/plan-meal", "plan-meal.html"})
-    public String plan() {
+    public String plan(Model model , Authentication authentication) {
+        List<Meal> meal = searchService.listMeal(userRepository.findByUsername(authentication.getName()).getId());
+        model.addAttribute("count", meal.size());
+        if (meal.size() > 0) {
+            model.addAttribute("meals", meal);
+        } else {
+            model.addAttribute("message", "No record Found");
+        }
         return "registered/plan-meal";
     }
 
@@ -94,7 +126,7 @@ public class RegisteredController {
     }
 
     @RequestMapping({"/view-profile", "view-profile.html"})
-    public String viewProfile(Model model, Authentication authentication,User user) {
+    public String viewProfile(Model model, Authentication authentication) {
         List<Recipe> resp = searchService.listAllForUser(userRepository.findByUsername(authentication.getName()).getId());
         model.addAttribute("user",userRepository.findByUsername(authentication.getName()));
         model.addAttribute("count", resp.size());

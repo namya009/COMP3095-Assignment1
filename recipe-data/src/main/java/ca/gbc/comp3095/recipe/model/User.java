@@ -10,13 +10,12 @@
  *             101284685
  *             101283555
  * Date: 4th Nov
- * Description: This java file is used to set the user entity in our h2 database.
+ * Description: This file creates User table.
+ *              This table is needed to register users.
  **********************************************************************************/
 package ca.gbc.comp3095.recipe.model;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -37,6 +36,10 @@ public class User {
             cascade = CascadeType.ALL)
     private Set<Recipe> recipes;
 
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
+    private Set<Meal> meals;
+
     public User() {
     }
 
@@ -49,7 +52,7 @@ public class User {
         this.password = password;
     }
 
-    public User(int id, String firstName, String lastName, String emailId, String username, String password,Set<Recipe> recipes) {
+    public User(int id, String firstName, String lastName, String emailId, String username, String password, Set<Recipe> recipes, Set<Meal> meals) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -57,6 +60,7 @@ public class User {
         this.username = username;
         this.password = password;
         this.recipes = recipes;
+        this.meals = meals;
     }
 
     public int getId() {

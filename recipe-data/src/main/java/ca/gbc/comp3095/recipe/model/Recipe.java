@@ -10,13 +10,13 @@
  *             101284685
  *             101283555
  * Date: 4th Nov
- * Description: This java file is used to set the recipe entity in our h2 database.
+ * Description: This file creates Recipe table.
+ *              This table is needed to add recipes.
  **********************************************************************************/
 package ca.gbc.comp3095.recipe.model;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -41,10 +41,14 @@ public class Recipe {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
+    @OneToMany(mappedBy = "recipe", fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
+    private Set<Meal> meals;
+
     public Recipe() {
     }
 
-    public Recipe(Long id, String recipeName, int prepTime, int cookTime, int totalTime, String ingredients, String instructions, Date dateAdded,User user,Boolean isFavorite) {
+    public Recipe(Long id, String recipeName, int prepTime, int cookTime, int totalTime, String ingredients, String instructions, Date dateAdded, User user, Boolean isFavorite) {
         this.id = id;
         this.recipeName = recipeName;
         this.prepTime = prepTime;
@@ -53,8 +57,22 @@ public class Recipe {
         this.ingredients = ingredients;
         this.instructions = instructions;
         this.dateAdded = dateAdded;
-        this.user=user;
-        this.isFavorite=isFavorite;
+        this.user = user;
+        this.isFavorite = isFavorite;
+    }
+
+    public Recipe(Long id, String recipeName, int prepTime, int cookTime, int totalTime, String ingredients, String instructions, Date dateAdded, User user, Boolean isFavorite, Set<Meal> meals) {
+        this.id = id;
+        this.recipeName = recipeName;
+        this.prepTime = prepTime;
+        this.cookTime = cookTime;
+        this.totalTime = totalTime;
+        this.ingredients = ingredients;
+        this.instructions = instructions;
+        this.dateAdded = dateAdded;
+        this.user = user;
+        this.isFavorite = isFavorite;
+        this.meals = meals;
     }
 
     public Long getId() {
@@ -149,4 +167,5 @@ public class Recipe {
     public int hashCode() {
         return Objects.hash(id);
     }
+
 }

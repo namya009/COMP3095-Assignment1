@@ -53,6 +53,11 @@
             <td th:text="${recipe.instructions}"></td>
             <td th:text="${recipe.dateAdded}"></td>
             <td th:each="a :${recipe.author}" th:text="${a.firstName}+' '+${a.lastName}"></td>
+            <td>
+                <form th:action="@{/registered/create-plan}" th:object="${recipe}" method="post">
+                    <button class="btn btn-lg btn-dark" type="submit" th:text="'Create Plan with This Recipe'"></button>
+                </form>
+            </td>
         </tr>
         </tbody>
     </table>
@@ -61,10 +66,5 @@
     <p th:text="${searchString}"></p>
     <h4 th:text="${message}"></h4>
 </div>
-
-<form th:action="@{/doLogout}" method="post">
-    <br>
-    <button class="btn btn-lg btn-dark" type="submit" th:text="'Logout'"></button>
-</form>
 </body>
 </html>

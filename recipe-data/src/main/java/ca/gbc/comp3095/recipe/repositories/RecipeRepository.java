@@ -10,21 +10,17 @@
  *             101284685
  *             101283555
  * Date: 4th Nov
- * Description: This java file is used to save recipes in our application.
+ * Description: This java file is used to do crud functions in recipe table.
  **********************************************************************************/
 package ca.gbc.comp3095.recipe.repositories;
 
 import ca.gbc.comp3095.recipe.model.Recipe;
-import ca.gbc.comp3095.recipe.model.User;
-import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
 public interface RecipeRepository extends CrudRepository<Recipe, Long> {
-
-    List<Recipe> findByUser(User user, Sort sort);
 
     @Query("SELECT r FROM Recipe r")
     List<Recipe> findAll();

@@ -44,10 +44,5 @@
 <div class="container p-5 -mt-3" th:if="${count}==0">
     <h4 th:text="${message}"></h4>
 </div>
-
-<form th:action="@{/doLogout}" method="post">
-    <br>
-    <button class="btn btn-lg btn-dark" type="submit" th:text="'Logout'"></button>
-</form>
 </body>
 </html>
