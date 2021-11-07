@@ -25,7 +25,6 @@ import java.util.List;
 public class SearchService {
     @Autowired
     private SearchRepository searchRepository;
-
     public List<Recipe> listAll(String keyword){
         return searchRepository.search(keyword);
     }

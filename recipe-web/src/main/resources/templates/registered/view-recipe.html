@@ -11,8 +11,42 @@
     <title>View Recipe</title>
 </head>
 <body>
+<h1>View Recipe</h1>
+
+<div class="container p-5 mt-2" th:if="${count &gt; 0}">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Prep Time</th>
+            <th>Cook Time</th>
+            <th>Total Time</th>
+            <th>Ingredients</th>
+            <th>Instructions</th>
+            <th>Date Added</th>
+            <th>Author</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="recipe :${recipes}">
+            <td th:text="${recipe.recipeName}"></td>
+            <td th:text="${recipe.prepTime} + ' minutes'"></td>
+            <td th:text="${recipe.cookTime} + ' minutes'"></td>
+            <td th:text="${recipe.totalTime} + ' minutes'"></td>
+            <td th:text="${recipe.ingredients}"></td>
+            <td th:text="${recipe.instructions}"></td>
+            <td th:text="${recipe.dateAdded}"></td>
+            <td th:each="a :${recipe.author}" th:text="${a.firstName}+' '+${a.lastName}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div class="container p-5 -mt-3" th:if="${count}==0">
+    <h4 th:text="${message}"></h4>
+</div>
 
 <form th:action="@{/doLogout}" method="post">
+    <br>
     <button class="btn btn-lg btn-dark" type="submit" th:text="'Logout'"></button>
 </form>
 </body>

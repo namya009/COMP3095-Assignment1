@@ -15,10 +15,10 @@
 package ca.gbc.comp3095.recipe.controllers;
 
 import ca.gbc.comp3095.recipe.model.Recipe;
-import ca.gbc.comp3095.recipe.model.User;
 import ca.gbc.comp3095.recipe.repositories.RecipeRepository;
 import ca.gbc.comp3095.recipe.repositories.UserRepository;
 import ca.gbc.comp3095.recipe.services.SearchService;
+import ca.gbc.comp3095.recipe.services.ViewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
@@ -41,7 +41,10 @@ public class RegisteredController {
     UserRepository userRepository;
 
     @Autowired
-    SearchService service;
+    SearchService searchService;
+
+    @Autowired
+    ViewService viewService;
 
     @RequestMapping({"", "/", "index", "index.html"})
     public String index() {
@@ -79,8 +82,7 @@ public class RegisteredController {
     public String search(HttpServletRequest request, Model model) {
         String searchName = request.getParameter("name");
         model.addAttribute("searchString", "You searched for " + searchName);
-        List<Recipe> resp = service.listAll(searchName);
-        model.addAttribute("nameCount", -1);
+        List<Recipe> resp = searchService.listAll(searchName);
         model.addAttribute("count", resp.size());
         if (resp.size() > 0) {
             model.addAttribute("recipes", resp);
@@ -96,7 +98,14 @@ public class RegisteredController {
     }
 
     @RequestMapping({"/view-recipe", "view-recipe.html"})
-    public String viewRecipe() {
-        return "registered/view-recipe";
+    public String viewRecipe(Model model) {
+        List<Recipe> resp = viewService.findAll();
+        model.addAttribute("count", resp.size());
+        if (resp.size() > 0) {
+            model.addAttribute("recipes", resp);
+        } else {
+            model.addAttribute("message", "No record Found");
+        }
+        return "/registered/view-recipe";
     }
 }
