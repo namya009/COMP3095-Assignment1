@@ -15,6 +15,7 @@
 package ca.gbc.comp3095.recipe.controllers;
 
 import ca.gbc.comp3095.recipe.model.Recipe;
+import ca.gbc.comp3095.recipe.model.User;
 import ca.gbc.comp3095.recipe.repositories.RecipeRepository;
 import ca.gbc.comp3095.recipe.repositories.UserRepository;
 import ca.gbc.comp3095.recipe.services.SearchService;
@@ -93,7 +94,15 @@ public class RegisteredController {
     }
 
     @RequestMapping({"/view-profile", "view-profile.html"})
-    public String viewProfile() {
+    public String viewProfile(Model model, Authentication authentication,User user) {
+        List<Recipe> resp = searchService.listAllForUser(userRepository.findByUsername(authentication.getName()).getId());
+        model.addAttribute("user",userRepository.findByUsername(authentication.getName()));
+        model.addAttribute("count", resp.size());
+        if (resp.size() > 0) {
+            model.addAttribute("recipes", resp);
+        } else {
+            model.addAttribute("message", "No record Found");
+        }
         return "registered/view-profile";
     }
 

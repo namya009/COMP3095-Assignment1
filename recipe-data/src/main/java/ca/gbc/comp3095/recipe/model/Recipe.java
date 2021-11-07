@@ -35,6 +35,7 @@ public class Recipe {
     @Lob
     private String instructions;
     private Date dateAdded;
+    private Boolean isFavorite;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "user_id", nullable = false)
@@ -43,7 +44,7 @@ public class Recipe {
     public Recipe() {
     }
 
-    public Recipe(Long id, String recipeName, int prepTime, int cookTime, int totalTime, String ingredients, String instructions, Date dateAdded,User user) {
+    public Recipe(Long id, String recipeName, int prepTime, int cookTime, int totalTime, String ingredients, String instructions, Date dateAdded,User user,Boolean isFavorite) {
         this.id = id;
         this.recipeName = recipeName;
         this.prepTime = prepTime;
@@ -53,7 +54,7 @@ public class Recipe {
         this.instructions = instructions;
         this.dateAdded = dateAdded;
         this.user=user;
-
+        this.isFavorite=isFavorite;
     }
 
     public Long getId() {
@@ -126,6 +127,14 @@ public class Recipe {
 
     public void setAuthor(User user) {
         this.user = user;
+    }
+
+    public Boolean getIsFavorite() {
+        return isFavorite;
+    }
+
+    public void setIsFavorite(Boolean isFavorite) {
+        this.isFavorite = isFavorite;
     }
 
     @Override
