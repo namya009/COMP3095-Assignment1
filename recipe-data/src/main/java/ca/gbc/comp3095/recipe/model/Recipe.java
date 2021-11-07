@@ -14,16 +14,7 @@
  **********************************************************************************/
 package ca.gbc.comp3095.recipe.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Lob;
-import javax.persistence.ManyToMany;
-import javax.persistence.JoinTable;
-import javax.persistence.JoinColumn;
-import javax.persistence.CascadeType;
-import javax.persistence.FetchType;
+import javax.persistence.*;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Objects;
@@ -31,10 +22,11 @@ import java.util.Set;
 
 @Entity
 public class Recipe {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
+    private String recipeName;
     private int prepTime;
     private int cookTime;
     private int totalTime;
@@ -44,41 +36,24 @@ public class Recipe {
     private String instructions;
     private Date dateAdded;
 
-    @ManyToMany
-    @JoinTable(name = "recipe_like",
-            joinColumns = @JoinColumn(name = "recipe_id"),
-            inverseJoinColumns = @JoinColumn(name = "user_id"))
-    private Set<User> likedByUsers = new HashSet<>();
-
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinTable(name = "users_recipes", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "recipe_id"))
-    private Set<User> author = new HashSet<>();
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
 
     public Recipe() {
     }
 
-    public Recipe(Long id, String name, int prepTime, int cookTime, int totalTime, String ingredients, String instructions, Date dateAdded) {
+    public Recipe(Long id, String recipeName, int prepTime, int cookTime, int totalTime, String ingredients, String instructions, Date dateAdded,User user) {
         this.id = id;
-        this.name = name;
+        this.recipeName = recipeName;
         this.prepTime = prepTime;
         this.cookTime = cookTime;
         this.totalTime = totalTime;
         this.ingredients = ingredients;
         this.instructions = instructions;
         this.dateAdded = dateAdded;
-    }
+        this.user=user;
 
-    public Recipe(Long id, String name, int prepTime, int cookTime, int totalTime, String ingredients, String instructions, Date dateAdded, Set<User> likedByUsers, Set<User> author) {
-        this.id = id;
-        this.name = name;
-        this.prepTime = prepTime;
-        this.cookTime = cookTime;
-        this.totalTime = totalTime;
-        this.ingredients = ingredients;
-        this.instructions = instructions;
-        this.dateAdded = dateAdded;
-        this.likedByUsers = likedByUsers;
-        this.author = author;
     }
 
     public Long getId() {
@@ -89,12 +64,12 @@ public class Recipe {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getRecipeName() {
+        return recipeName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setRecipeName(String recipeName) {
+        this.recipeName = recipeName;
     }
 
     public int getPrepTime() {
@@ -145,35 +120,12 @@ public class Recipe {
         this.dateAdded = dateAdded;
     }
 
-    public Set<User> getLikedByUsers() {
-        return likedByUsers;
+    public User getAuthor() {
+        return user;
     }
 
-    public void setLikedByUsers(Set<User> likedByUsers) {
-        this.likedByUsers = likedByUsers;
-    }
-
-    public Set<User> getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(Set<User> author) {
-        this.author = author;
-    }
-
-    @Override
-    public String toString() {
-        return "Recipe{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", prepTime='" + prepTime + '\'' +
-                ", cookTime='" + cookTime + '\'' +
-                ", totalTime='" + totalTime + '\'' +
-                ", ingredients=" + ingredients +
-                ", instructions='" + instructions + '\'' +
-                ", author=" + author +
-                ", likedByUsers=" + likedByUsers +
-                '}';
+    public void setAuthor(User user) {
+        this.user = user;
     }
 
     @Override

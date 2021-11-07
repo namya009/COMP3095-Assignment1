@@ -14,13 +14,9 @@
  **********************************************************************************/
 package ca.gbc.comp3095.recipe.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.Column;
+import javax.persistence.*;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -36,9 +32,10 @@ public class User {
     @Column(unique = true)
     private String username;
     private String password;
-    @ManyToMany(mappedBy = "likedByUsers")
-    private Set<Recipe> likedRecipes = new HashSet<>();
 
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
+    private Set<Recipe> recipes;
 
     public User() {
     }
@@ -52,14 +49,14 @@ public class User {
         this.password = password;
     }
 
-    public User(int id, String firstName, String lastName, String emailId, String username, String password, Set<Recipe> likedRecipes) {
+    public User(int id, String firstName, String lastName, String emailId, String username, String password,Set<Recipe> recipes) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.emailId = emailId;
         this.username = username;
         this.password = password;
-        this.likedRecipes = likedRecipes;
+        this.recipes = recipes;
     }
 
     public int getId() {
@@ -110,14 +107,13 @@ public class User {
         this.password = password;
     }
 
-    public Set<Recipe> getLikedRecipes() {
-        return likedRecipes;
+    public Set<Recipe> getRecipes() {
+        return recipes;
     }
 
-    public void setLikedRecipes(Set<Recipe> likedRecipes) {
-        this.likedRecipes = likedRecipes;
+    public void setRecipes(Set<Recipe> recipes) {
+        this.recipes = recipes;
     }
-
 
     @Override
     public boolean equals(Object o) {

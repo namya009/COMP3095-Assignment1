@@ -15,6 +15,7 @@
 package ca.gbc.comp3095.recipe.controllers;
 
 import ca.gbc.comp3095.recipe.model.Recipe;
+import ca.gbc.comp3095.recipe.model.User;
 import ca.gbc.comp3095.recipe.repositories.RecipeRepository;
 import ca.gbc.comp3095.recipe.repositories.UserRepository;
 import ca.gbc.comp3095.recipe.services.SearchService;
@@ -27,9 +28,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.List;
-import java.util.Date;
-import java.util.HashSet;
+import java.util.*;
 
 @RequestMapping("/registered")
 @Controller
@@ -58,7 +57,7 @@ public class RegisteredController {
 
     @PostMapping(value = "/save")
     public String save(Recipe recipe, Authentication authentication) {
-        recipe.setAuthor(new HashSet<>(userRepository.findByUsername(authentication.getName())));
+        recipe.setAuthor(userRepository.findByUsername(authentication.getName()));
         recipe.setDateAdded(new Date());
         recipe.setTotalTime(recipe.getPrepTime() + recipe.getCookTime());
         recipeRepository.save(recipe);
