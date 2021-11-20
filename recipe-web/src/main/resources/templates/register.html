@@ -32,9 +32,9 @@
             </div>
         </div>
         <div class="row mb-3">
-            <label class="col-sm-2" th:text="'Address:'"></label>
+            <label class="col-sm-2" th:text="'Email Id:'"></label>
             <div class="col-sm-8">
-                <input type="text" class="form-control" th:field="*{emailId}"/>
+                <input type="email" class="form-control" th:field="*{emailId}"/>
             </div>
         </div>
         <div class="row mb-3">
@@ -55,7 +55,7 @@
         </div>
         <div class="row mb-3">
             <label class="col-sm-2"></label>
-            <label class="col-sm-2"></label>
+            <label class="col-sm-2" th:utext="${err}"></label>
             <div class="col-sm-4">
                 <button class="w-100 btn btn-lg btn-dark" type="submit" th:text="'Register'"></button>
             </div>

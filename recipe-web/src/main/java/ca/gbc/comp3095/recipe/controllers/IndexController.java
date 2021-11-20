@@ -43,6 +43,14 @@ public class IndexController {
 
     @PostMapping(value = "/save")
     public String save(User user, Model model) {
+        if(userRepository.findByUsername(user.getUsername()) != null){
+            model.addAttribute("err","The username <b>"+user.getUsername()+"</b> is already in use.");
+            return "/register";
+        }
+        String fname=user.getFirstName();
+        String lname=user.getLastName();
+        user.setFirstName(fname.substring(0, 1).toUpperCase() + fname.substring(1));
+        user.setLastName(lname.substring(0, 1).toUpperCase() + lname.substring(1));
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String encodedPassword = passwordEncoder.encode(user.getPassword());
         user.setPassword(encodedPassword);

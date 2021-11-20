@@ -114,7 +114,7 @@ public class RegisteredController {
     @RequestMapping(value = {"search", "/search-recipe", "/search-recipe.html"}, method = RequestMethod.POST)
     public String search(HttpServletRequest request, Model model) {
         String searchName = request.getParameter("name");
-        model.addAttribute("searchString", "You searched for " + searchName);
+        model.addAttribute("searchString", "You searched for \"" + searchName+"\".");
         List<Recipe> resp = searchService.listAll(searchName);
         model.addAttribute("count", resp.size());
         if (resp.size() > 0) {

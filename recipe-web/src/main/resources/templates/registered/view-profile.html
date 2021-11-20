@@ -55,7 +55,7 @@
             <th>Ingredients</th>
             <th>Instructions</th>
             <th>Date Added</th>
-            <th>Is It Favorite</th>
+            <th>Author Name</th>
         </tr>
         </thead>
         <tbody>
@@ -67,7 +67,7 @@
             <td th:text="${recipe.ingredients}"></td>
             <td th:text="${recipe.instructions}"></td>
             <td th:text="${recipe.dateAdded}"></td>
-            <td th:text="${recipe.isFavorite}"></td>
+            <td th:each="a :${recipe.author}" th:text="${a.firstName}+' '+${a.lastName}"></td>
         </tr>
         </tbody>
     </table>

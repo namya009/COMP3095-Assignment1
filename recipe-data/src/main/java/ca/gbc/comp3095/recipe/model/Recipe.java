@@ -35,7 +35,6 @@ public class Recipe {
     @Lob
     private String instructions;
     private Date dateAdded;
-    private Boolean isFavorite;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "user_id", nullable = false)
@@ -45,10 +44,15 @@ public class Recipe {
             cascade = CascadeType.ALL)
     private Set<Meal> meals;
 
+    @ManyToMany(cascade = { CascadeType.ALL })
+    @JoinTable(name = "user_recipe", joinColumns = { @JoinColumn(name = "recipe_id") }, inverseJoinColumns = {
+            @JoinColumn(name = "user_id") })
+    private Set<User> user_fav;
+
     public Recipe() {
     }
 
-    public Recipe(Long id, String recipeName, int prepTime, int cookTime, int totalTime, String ingredients, String instructions, Date dateAdded, User user, Boolean isFavorite) {
+    public Recipe(Long id, String recipeName, int prepTime, int cookTime, int totalTime, String ingredients, String instructions, Date dateAdded, User user, Set<Meal> meals ,Set<User> user_fav) {
         this.id = id;
         this.recipeName = recipeName;
         this.prepTime = prepTime;
@@ -58,21 +62,8 @@ public class Recipe {
         this.instructions = instructions;
         this.dateAdded = dateAdded;
         this.user = user;
-        this.isFavorite = isFavorite;
-    }
-
-    public Recipe(Long id, String recipeName, int prepTime, int cookTime, int totalTime, String ingredients, String instructions, Date dateAdded, User user, Boolean isFavorite, Set<Meal> meals) {
-        this.id = id;
-        this.recipeName = recipeName;
-        this.prepTime = prepTime;
-        this.cookTime = cookTime;
-        this.totalTime = totalTime;
-        this.ingredients = ingredients;
-        this.instructions = instructions;
-        this.dateAdded = dateAdded;
-        this.user = user;
-        this.isFavorite = isFavorite;
         this.meals = meals;
+        this.user_fav=user_fav;
     }
 
     public Long getId() {
@@ -147,12 +138,28 @@ public class Recipe {
         this.user = user;
     }
 
-    public Boolean getIsFavorite() {
-        return isFavorite;
+    public User getUser() {
+        return user;
     }
 
-    public void setIsFavorite(Boolean isFavorite) {
-        this.isFavorite = isFavorite;
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Set<Meal> getMeals() {
+        return meals;
+    }
+
+    public void setMeals(Set<Meal> meals) {
+        this.meals = meals;
+    }
+
+    public Set<User> getUser_fav() {
+        return user_fav;
+    }
+
+    public void setUser_fav(Set<User> user_fav) {
+        this.user_fav = user_fav;
     }
 
     @Override

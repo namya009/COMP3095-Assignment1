@@ -40,19 +40,13 @@ public class User {
             cascade = CascadeType.ALL)
     private Set<Meal> meals;
 
+    @ManyToMany(mappedBy = "user_fav", cascade = { CascadeType.ALL })
+    private Set<Recipe> recipe_fav;
+
     public User() {
     }
 
-    public User(int id, String firstName, String lastName, String emailId, String username, String password) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.emailId = emailId;
-        this.username = username;
-        this.password = password;
-    }
-
-    public User(int id, String firstName, String lastName, String emailId, String username, String password, Set<Recipe> recipes, Set<Meal> meals) {
+    public User(int id, String firstName, String lastName, String emailId, String username, String password, Set<Recipe> recipes, Set<Meal> meals ,Set<Recipe> recipe_fav) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -61,6 +55,23 @@ public class User {
         this.password = password;
         this.recipes = recipes;
         this.meals = meals;
+        this.recipe_fav=recipe_fav;
+    }
+
+    public Set<Meal> getMeals() {
+        return meals;
+    }
+
+    public void setMeals(Set<Meal> meals) {
+        this.meals = meals;
+    }
+
+    public Set<Recipe> getRecipe_fav() {
+        return recipe_fav;
+    }
+
+    public void setRecipe_fav(Set<Recipe> recipe_fav) {
+        this.recipe_fav = recipe_fav;
     }
 
     public int getId() {
