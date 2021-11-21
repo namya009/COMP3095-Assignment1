@@ -16,6 +16,7 @@ package ca.gbc.comp3095.recipe.controllers;
 
 import ca.gbc.comp3095.recipe.model.Meal;
 import ca.gbc.comp3095.recipe.model.Recipe;
+import ca.gbc.comp3095.recipe.model.User;
 import ca.gbc.comp3095.recipe.repositories.MealRepository;
 import ca.gbc.comp3095.recipe.repositories.RecipeRepository;
 import ca.gbc.comp3095.recipe.repositories.UserRepository;
@@ -30,6 +31,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
+import java.time.LocalDate;
 import java.util.*;
 
 
@@ -77,18 +79,22 @@ public class RegisteredController {
     }
 
     @PostMapping(value = "/save")
-    public String save(Recipe recipe, Authentication authentication) {
-        recipe.setAuthor(userRepository.findByUsername(authentication.getName()));
-        recipe.setDateAdded(new Date());
+    public String save(Model model, Recipe recipe, Authentication authentication) {
+        User user=userRepository.findByUsername(authentication.getName());
+        model.addAttribute("uName",user.getFirstName()+" "+user.getLastName());
+        recipe.setAuthor(user);
+        recipe.setDateAdded(LocalDate.now());
         recipe.setTotalTime(recipe.getPrepTime() + recipe.getCookTime());
+        user.getRecipe_fav().add(recipe);
+        recipe.getUser_fav().add(user);
         recipeRepository.save(recipe);
         return "/registered/index";
     }
 
     @PostMapping(value = "/save-meal")
-    public String save(Meal meal, Authentication authentication) {
+    public String save(Model model,Meal meal, Authentication authentication) {
+        model.addAttribute("uName",userRepository.findByUsername(authentication.getName()).getFirstName()+" "+userRepository.findByUsername(authentication.getName()).getLastName());
         meal.setUser(userRepository.findByUsername(authentication.getName()));
-
         mealRepository.save(meal);
         return "/registered/index";
     }

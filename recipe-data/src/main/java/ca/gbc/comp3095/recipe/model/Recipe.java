@@ -16,9 +16,8 @@
 package ca.gbc.comp3095.recipe.model;
 
 import javax.persistence.*;
-import java.util.Date;
-import java.util.Objects;
-import java.util.Set;
+import java.time.LocalDate;
+import java.util.*;
 
 @Entity
 public class Recipe {
@@ -34,7 +33,7 @@ public class Recipe {
     private String ingredients;
     @Lob
     private String instructions;
-    private Date dateAdded;
+    private LocalDate dateAdded;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "user_id", nullable = false)
@@ -45,14 +44,14 @@ public class Recipe {
     private Set<Meal> meals;
 
     @ManyToMany(cascade = { CascadeType.ALL })
-    @JoinTable(name = "user_recipe", joinColumns = { @JoinColumn(name = "recipe_id") }, inverseJoinColumns = {
+    @JoinTable(name = "user_fav_recipe", joinColumns = { @JoinColumn(name = "recipe_id") }, inverseJoinColumns = {
             @JoinColumn(name = "user_id") })
-    private Set<User> user_fav;
+    private Set<User> user_fav = new HashSet<>();
 
     public Recipe() {
     }
 
-    public Recipe(Long id, String recipeName, int prepTime, int cookTime, int totalTime, String ingredients, String instructions, Date dateAdded, User user, Set<Meal> meals ,Set<User> user_fav) {
+    public Recipe(Long id, String recipeName, int prepTime, int cookTime, int totalTime, String ingredients, String instructions, LocalDate dateAdded, User user, Set<Meal> meals ,Set<User> user_fav) {
         this.id = id;
         this.recipeName = recipeName;
         this.prepTime = prepTime;
@@ -122,11 +121,11 @@ public class Recipe {
         this.instructions = instructions;
     }
 
-    public Date getDateAdded() {
+    public LocalDate getDateAdded() {
         return dateAdded;
     }
 
-    public void setDateAdded(Date dateAdded) {
+    public void setDateAdded(LocalDate dateAdded) {
         this.dateAdded = dateAdded;
     }
 

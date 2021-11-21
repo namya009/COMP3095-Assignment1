@@ -16,6 +16,7 @@
 package ca.gbc.comp3095.recipe.model;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.Objects;
 
@@ -25,7 +26,7 @@ public class Meal {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Date dateToBeMade;
+    private LocalDate dateToBeMade;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "recipe_id", nullable = false)
@@ -38,7 +39,7 @@ public class Meal {
     public Meal() {
     }
 
-    public Meal(Long id, Date dateToBeMade, Recipe recipe, User user) {
+    public Meal(Long id, LocalDate dateToBeMade, Recipe recipe, User user) {
         this.id = id;
         this.dateToBeMade = dateToBeMade;
         this.recipe = recipe;
@@ -53,11 +54,11 @@ public class Meal {
         this.id = id;
     }
 
-    public Date getDateToBeMade() {
+    public LocalDate getDateToBeMade() {
         return dateToBeMade;
     }
 
-    public void setDateToBeMade(Date dateToBeMade) {
+    public void setDateToBeMade(LocalDate dateToBeMade) {
         this.dateToBeMade = dateToBeMade;
     }
 

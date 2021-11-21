@@ -22,6 +22,8 @@ import java.util.List;
 
 public interface RecipeRepository extends CrudRepository<Recipe, Long> {
 
-    @Query("SELECT r FROM Recipe r")
+    @Query("SELECT r FROM Recipe r order by r.dateAdded")
     List<Recipe> findAll();
+
+
 }
