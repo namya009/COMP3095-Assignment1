@@ -15,10 +15,13 @@
  **********************************************************************************/
 package ca.gbc.comp3095.recipe.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.Objects;
+import java.util.Optional;
 
 @Entity
 public class Meal {
@@ -26,7 +29,8 @@ public class Meal {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private LocalDate dateToBeMade;
+
+    private String dateToBeMade;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "recipe_id", nullable = false)
@@ -39,7 +43,7 @@ public class Meal {
     public Meal() {
     }
 
-    public Meal(Long id, LocalDate dateToBeMade, Recipe recipe, User user) {
+    public Meal(Long id, String dateToBeMade, Recipe recipe, User user) {
         this.id = id;
         this.dateToBeMade = dateToBeMade;
         this.recipe = recipe;
@@ -54,11 +58,11 @@ public class Meal {
         this.id = id;
     }
 
-    public LocalDate getDateToBeMade() {
+    public String getDateToBeMade() {
         return dateToBeMade;
     }
 
-    public void setDateToBeMade(LocalDate dateToBeMade) {
+    public void setDateToBeMade(String dateToBeMade) {
         this.dateToBeMade = dateToBeMade;
     }
 

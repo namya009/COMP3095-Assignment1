@@ -69,9 +69,8 @@ public class RegisteredController {
     @RequestMapping({"/create-plan", "create-plan.html"})
     public String createPlan(Model model, Recipe recipe,HttpServletRequest request) {
         String recipeId=request.getParameter("recipeId");
+        model.addAttribute("recipe_id",recipeId);
         Meal meal=new Meal();
-        System.out.println(recipeId);
-        System.out.print(recipe.getRecipeName());
         model.addAttribute("recipe",recipe);
         model.addAttribute("meal", meal);
 
@@ -92,11 +91,15 @@ public class RegisteredController {
     }
 
     @PostMapping(value = "/save-meal")
-    public String save(Model model,Meal meal, Authentication authentication) {
-        model.addAttribute("uName",userRepository.findByUsername(authentication.getName()).getFirstName()+" "+userRepository.findByUsername(authentication.getName()).getLastName());
+    public String save(Model model,Meal meal, Authentication authentication,HttpServletRequest request) {
+        int recipeId= Integer.valueOf(request.getParameter("recipeId"));
         meal.setUser(userRepository.findByUsername(authentication.getName()));
+        meal.setRecipe(recipeRepository.findById(recipeId));
         mealRepository.save(meal);
-        return "/registered/index";
+        List<Meal> m = searchService.listMeal(userRepository.findByUsername(authentication.getName()).getId());
+        model.addAttribute("count", m.size());
+        model.addAttribute("meals", m);
+        return "/registered/plan-meal";
     }
 
     @RequestMapping({"/plan", "/plan-meal", "plan-meal.html"})
@@ -120,7 +123,7 @@ public class RegisteredController {
     @RequestMapping(value = {"search", "/search-recipe", "/search-recipe.html"}, method = RequestMethod.POST)
     public String search(HttpServletRequest request, Model model) {
         String searchName = request.getParameter("name");
-        model.addAttribute("searchString", "You searched for \"" + searchName+"\".");
+        model.addAttribute("searchString", "You searched for \" " + searchName+" \".");
         List<Recipe> resp = searchService.listAll(searchName);
         model.addAttribute("count", resp.size());
         if (resp.size() > 0) {

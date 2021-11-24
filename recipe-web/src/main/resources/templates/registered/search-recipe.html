@@ -54,7 +54,7 @@
             <td th:text="${recipe.dateAdded}"></td>
             <td th:each="a :${recipe.author}" th:text="${a.firstName}+' '+${a.lastName}"></td>
             <td>
-                <form th:action="@{/registered/create-plan}" th:object="${recipe}" method="post">
+                <form th:action="@{/registered/create-plan(recipeId=${recipe.id})}" th:object="${recipe}" method="post">
                     <button class="btn btn-lg btn-dark" type="submit" th:text="'Create Plan with This Recipe'"></button>
                 </form>
             </td>

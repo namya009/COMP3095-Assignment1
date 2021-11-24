@@ -24,7 +24,7 @@ public class Recipe {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
     private String recipeName;
     private int prepTime;
     private int cookTime;
@@ -51,7 +51,7 @@ public class Recipe {
     public Recipe() {
     }
 
-    public Recipe(Long id, String recipeName, int prepTime, int cookTime, int totalTime, String ingredients, String instructions, LocalDate dateAdded, User user, Set<Meal> meals ,Set<User> user_fav) {
+    public Recipe(int id, String recipeName, int prepTime, int cookTime, int totalTime, String ingredients, String instructions, LocalDate dateAdded, User user, Set<Meal> meals ,Set<User> user_fav) {
         this.id = id;
         this.recipeName = recipeName;
         this.prepTime = prepTime;
@@ -65,11 +65,11 @@ public class Recipe {
         this.user_fav=user_fav;
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

@@ -14,6 +14,7 @@
  **********************************************************************************/
 package ca.gbc.comp3095.recipe.repositories;
 
+import ca.gbc.comp3095.recipe.model.Meal;
 import ca.gbc.comp3095.recipe.model.Recipe;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -25,5 +26,5 @@ public interface RecipeRepository extends CrudRepository<Recipe, Long> {
     @Query("SELECT r FROM Recipe r order by r.dateAdded")
     List<Recipe> findAll();
 
-
+    Recipe findById(int recipeId);
 }

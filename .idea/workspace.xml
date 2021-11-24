@@ -4,14 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f7425b1-4759-4ba3-ae95-3d3cc965e3d3" name="Changes" comment="first 3 functions for assignment 1 done">
+    <list default="true" id="5f7425b1-4759-4ba3-ae95-3d3cc965e3d3" name="Changes" comment="plan meal left from assignment 1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/model/Meal.java" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/model/Meal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/model/Recipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/model/Recipe.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/repositories/RecipeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/repositories/RecipeRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/repositories/SearchRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/repositories/SearchRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/recipe-web/src/main/java/ca/gbc/comp3095/recipe/controllers/RegisteredController.java" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-web/src/main/java/ca/gbc/comp3095/recipe/controllers/RegisteredController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe-web/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-web/src/main/resources/data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipe-web/src/main/resources/templates/registered/create-plan.html" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-web/src/main/resources/templates/registered/create-plan.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipe-web/src/main/resources/templates/registered/search-recipe.html" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-web/src/main/resources/templates/registered/search-recipe.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,7 +138,8 @@
       <workItem from="1637181555828" duration="6004000" />
       <workItem from="1637357391621" duration="4680000" />
       <workItem from="1637442977166" duration="4226000" />
-      <workItem from="1637479856736" duration="7110000" />
+      <workItem from="1637479856736" duration="13354000" />
+      <workItem from="1637788912704" duration="731000" />
     </task>
     <task id="LOCAL-00001" summary="half done">
       <created>1636139354252</created>
@@ -209,7 +211,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637444186685</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="plan meal left from assignment 1">
+      <created>1637488368531</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1637488368531</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -238,6 +247,7 @@
     <MESSAGE value="view profile done" />
     <MESSAGE value="submitting assignment 1" />
     <MESSAGE value="first 3 functions for assignment 1 done" />
-    <option name="LAST_COMMIT_MESSAGE" value="first 3 functions for assignment 1 done" />
+    <MESSAGE value="plan meal left from assignment 1" />
+    <option name="LAST_COMMIT_MESSAGE" value="plan meal left from assignment 1" />
   </component>
 </project>
