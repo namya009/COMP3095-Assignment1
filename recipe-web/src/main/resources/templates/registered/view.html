@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"></script>
+    <div th:replace="header :: myheader"></div>
+    <style>
+        /* Chrome, Safari, Edge, Opera */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Firefox */
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <title>Details of Recipe</title>
+</head>
+<body>
+    <div class="container p-5 mt-2">
+        <table class="table">
+            <tr>
+                <th class="col-1">Recipe Name</th>
+                <td colspan="3" th:text="${recipe.recipeName}"></td>
+            </tr>
+            <tr>
+                <th>Preparation Time</th>
+                <td colspan="3" th:text="${recipe.prepTime}"></td>
+            </tr>
+
+            <tr>
+                <th>Cook Time</th>
+                <td colspan="3" th:text="${recipe.cookTime}"></td>
+            </tr>
+            <tr>
+                <th>Total Time</th>
+                <td colspan="3" th:text="${recipe.totalTime}"></td>
+            </tr>
+            <tr th:each="i ,iStat:${ingredient}">
+                <th class="col-3" th:text="'Ingredient '+${iStat.count}+' of '+${iStat.size}"></th>
+                <td th:text="${i.item}"></td>
+                <td class="col-2">
+                    Add To Shopping List
+                    <!--<form th:action="@{/registered/view(recipeId=${recipe.id})}" th:object="${recipe}" method="post">
+                        <button class="btn btn-lg btn-dark" type="submit" th:text="'View Details'"></button>
+                    </form>-->
+                </td>
+                <td class="col-2">Remove Ingredient</td>
+            </tr>
+            <tr>
+                <th>Instructions</th>
+                <td colspan="3" th:text="${recipe.instruction}"></td>
+            </tr>
+            <tr>
+                <th>Date Added</th>
+                <td colspan="3" th:text="${recipe.dateAdded}"></td>
+            </tr>
+            <tr>
+                <th>Author</th>
+                <td colspan="3" th:text="${recipe.author.name}"></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

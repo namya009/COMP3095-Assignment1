@@ -28,7 +28,7 @@
 <br/>
 <form th:action="@{/registered/save}" th:object="${recipe}" method="post">
     <div class="row mb-3">
-        <label class="col-sm-2" th:text="'Recipe Name:'"></label>
+        <label class="col-sm-3" th:text="'Recipe Name:'"></label>
         <div class="col-sm-8">
             <input type="text" class="form-control" th:field="*{recipeName}" th:required="true"
                    th:oninvalid="this.setCustomValidity('Recipe name cannot be blank')"
@@ -36,7 +36,7 @@
         </div>
     </div>
     <div class="row mb-3">
-        <label class="col-sm-2" th:text="'Prep Time (In minutes):'"></label>
+        <label class="col-sm-3" th:text="'Prep Time (In minutes):'"></label>
         <div class="col-sm-8">
             <input type="number" step="1" class="form-control" th:field="*{prepTime}" th:required="true"
                    th:oninvalid="this.setCustomValidity('Recipe prep time cannot be blank')"
@@ -45,7 +45,7 @@
     </div>
     </div>
     <div class="row mb-3">
-        <label class="col-sm-2" th:text="'Cook Time (In minutes):'"></label>
+        <label class="col-sm-3" th:text="'Cook Time (In minutes):'"></label>
         <div class="col-sm-8">
             <input type="number" step="1" class="form-control" th:field="*{cookTime}" th:required="true"
                    th:oninvalid="this.setCustomValidity('Recipe cook time cannot be blank')"
@@ -53,28 +53,28 @@
         </div>
     </div>
     <div class="row mb-3">
-        <label class="col-sm-2" th:text="'Ingredients:'"></label>
+        <label class="col-sm-3" th:text="'Ingredient(Comma Seprated):'"></label>
         <div class="col-sm-8">
-                <textarea class="form-control" th:field="*{ingredients}" th:required="true"
-                          th:oninvalid="this.setCustomValidity('Recipe ingredients cannot be blank')"
-                          th:oninput="this.setCustomValidity('')"></textarea>
+            <input type="text" class="form-control" th:field="*{temp_ingre}" th:required="true"
+                   th:oninvalid="this.setCustomValidity('There has to be atleast 1 ingredient')"
+                   th:oninput="this.setCustomValidity('')"/>
         </div>
     </div>
     <div class="row mb-3">
-        <label class="col-sm-2" th:text="'Instructions:'"></label>
+        <label class="col-sm-3" th:text="'Instruction:'"></label>
         <div class="col-sm-8">
-                <textarea class="form-control" th:field="*{instructions}" th:required="true"
-                          th:oninvalid="this.setCustomValidity('Recipe instructions cannot be blank')"
-                          th:oninput="this.setCustomValidity('')"></textarea>
+            <textarea type="text" class="form-control" th:field="*{instruction}" required="required"
+                   th:oninvalid="this.setCustomValidity('Instructions cannot be blank')"
+                   th:oninput="this.setCustomValidity('')"></textarea>
         </div>
     </div>
     <div class="row mb-3">
-        <label class="col-sm-2"></label>
-        <label class="col-sm-2"></label>
+        <label class="col-sm-4"></label>
         <div class="col-sm-4">
             <button class="w-100 btn btn-lg btn-dark" type="submit" th:text="'Save'"></button>
         </div>
     </div>
 </form>
 </body>
+
 </html>

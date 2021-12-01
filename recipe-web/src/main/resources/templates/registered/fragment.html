@@ -1,0 +1,39 @@
+<th:block th:fragment="recipe_table">
+  <div class="container p-4 mt-2" th:if="${count &gt; 0}">
+    <table class="table">
+      <thead>
+      <tr>
+        <th></th>
+        <th>Name</th>
+        <th>Prep Time</th>
+        <th>Cook Time</th>
+        <th>Total Time</th>
+        <th>Date Added</th>
+        <th>Author Name</th>
+        <th>Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="recipe ,recipeStat:${recipes}">
+        <td th:text="${recipeStat.count}"></td>
+        <td th:text="${recipe.recipeName}"></td>
+        <td th:text="${recipe.prepTime} + ' minutes'"></td>
+        <td th:text="${recipe.cookTime} + ' minutes'"></td>
+        <td th:text="${recipe.totalTime} + ' minutes'"></td>
+        <td th:text="${recipe.dateAdded}"></td>
+        <td th:text="${recipe.author.name}"></td>
+        <td><form th:action="@{/registered/view(recipeId=${recipe.id})}" th:object="${recipe}" method="post">
+          <button class="btn btn-lg btn-dark" type="submit" th:text="'View Details'"></button>
+        </form></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="container p-5 -mt-3" th:if="${count}==0">
+    <h4 th:text="${message}"></h4>
+  </div>
+</th:block>
+
+<th:block th:fragment="script2">
+  <div>your content here, instead of this div</div>
+</th:block>

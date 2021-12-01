@@ -10,8 +10,8 @@
  *             101284685
  *             101283555
  * Date: 7th Nov
- * Description: This file creates meal table.
- *              This table is needed to plan meals.
+ * Description: This file creates ingredient table.
+ *              This table is needed to add ingredient to recipe table.
  **********************************************************************************/
 package ca.gbc.comp3095.recipe.model;
 
@@ -19,30 +19,29 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-public class Meal {
+public class Ingredient {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String dateToBeMade;
-
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "recipe_id", nullable = false)
     private Recipe recipe;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    private String item;
 
-    public Meal() {
+    public Ingredient(Long id, Recipe recipe, String item) {
+        this.id = id;
+        this.recipe = recipe;
+        this.item = item;
+    }
+    public Ingredient(Recipe recipe, String item) {
+        this.recipe = recipe;
+        this.item = item;
     }
 
-    public Meal(Long id, String dateToBeMade, Recipe recipe, User user) {
-        this.id = id;
-        this.dateToBeMade = dateToBeMade;
-        this.recipe = recipe;
-        this.user = user;
+    public Ingredient() {
     }
 
     public Long getId() {
@@ -53,14 +52,6 @@ public class Meal {
         this.id = id;
     }
 
-    public String getDateToBeMade() {
-        return dateToBeMade;
-    }
-
-    public void setDateToBeMade(String dateToBeMade) {
-        this.dateToBeMade = dateToBeMade;
-    }
-
     public Recipe getRecipe() {
         return recipe;
     }
@@ -69,20 +60,20 @@ public class Meal {
         this.recipe = recipe;
     }
 
-    public User getUser() {
-        return user;
+    public String getItem() {
+        return item;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setItem(String item) {
+        this.item = item;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Meal meal = (Meal) o;
-        return Objects.equals(id, meal.id);
+        Ingredient ingredient= (Ingredient) o;
+        return Objects.equals(id, ingredient.id);
     }
 
     @Override
@@ -90,4 +81,3 @@ public class Meal {
         return Objects.hash(id);
     }
 }
-

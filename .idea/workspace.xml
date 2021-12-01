@@ -4,15 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f7425b1-4759-4ba3-ae95-3d3cc965e3d3" name="Changes" comment="plan meal left from assignment 1">
+    <list default="true" id="5f7425b1-4759-4ba3-ae95-3d3cc965e3d3" name="Changes" comment="assignment 1 done">
+      <change afterPath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/model/Ingredient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/repositories/IngredientRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/recipe-web/src/main/resources/templates/registered/fragment.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/recipe-web/src/main/resources/templates/registered/view.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/config/MyUserDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/config/MyUserDetails.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/model/Meal.java" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/model/Meal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/model/Recipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/model/Recipe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/repositories/RecipeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/repositories/RecipeRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/model/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/repositories/SearchRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/repositories/SearchRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipe-web/src/main/java/ca/gbc/comp3095/recipe/controllers/IndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-web/src/main/java/ca/gbc/comp3095/recipe/controllers/IndexController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/recipe-web/src/main/java/ca/gbc/comp3095/recipe/controllers/RegisteredController.java" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-web/src/main/java/ca/gbc/comp3095/recipe/controllers/RegisteredController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe-web/src/main/resources/templates/registered/create-plan.html" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-web/src/main/resources/templates/registered/create-plan.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipe-web/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-web/src/main/resources/data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipe-web/src/main/resources/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-web/src/main/resources/templates/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipe-web/src/main/resources/templates/registered/create-recipe.html" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-web/src/main/resources/templates/registered/create-recipe.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipe-web/src/main/resources/templates/registered/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-web/src/main/resources/templates/registered/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/recipe-web/src/main/resources/templates/registered/search-recipe.html" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-web/src/main/resources/templates/registered/search-recipe.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipe-web/src/main/resources/templates/registered/view-profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-web/src/main/resources/templates/registered/view-profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipe-web/src/main/resources/templates/registered/view-recipe.html" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-web/src/main/resources/templates/registered/view-recipe.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +34,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="JpaEntity" />
         <option value="Interface" />
         <option value="HTML File" />
       </list>
@@ -79,6 +91,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="restartRequiresConfirmation" value="false" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -139,7 +152,9 @@
       <workItem from="1637357391621" duration="4680000" />
       <workItem from="1637442977166" duration="4226000" />
       <workItem from="1637479856736" duration="13354000" />
-      <workItem from="1637788912704" duration="731000" />
+      <workItem from="1637788912704" duration="4501000" />
+      <workItem from="1637868601182" duration="1573000" />
+      <workItem from="1638316992594" duration="25445000" />
     </task>
     <task id="LOCAL-00001" summary="half done">
       <created>1636139354252</created>
@@ -218,7 +233,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637488368531</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="assignment 1 done">
+      <created>1637789897021</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1637789897021</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -248,6 +270,7 @@
     <MESSAGE value="submitting assignment 1" />
     <MESSAGE value="first 3 functions for assignment 1 done" />
     <MESSAGE value="plan meal left from assignment 1" />
-    <option name="LAST_COMMIT_MESSAGE" value="plan meal left from assignment 1" />
+    <MESSAGE value="assignment 1 done" />
+    <option name="LAST_COMMIT_MESSAGE" value="assignment 1 done" />
   </component>
 </project>

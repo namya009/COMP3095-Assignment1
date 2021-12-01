@@ -27,44 +27,10 @@
         </div>
     </div>
 </form>
+<p th:text="${searchString}"></p>
+<div th:replace = "/registered/fragment.html::recipe_table">
+</div>
 
-<div class="container p-5 mt-2" th:if="${count &gt; 0}">
-    <p th:text="${searchString}"></p>
-    <table class="table">
-        <thead>
-        <tr>
-            <th>Name</th>
-            <th>Prep Time</th>
-            <th>Cook Time</th>
-            <th>Total Time</th>
-            <th>Ingredients</th>
-            <th>Instructions</th>
-            <th>Date Added</th>
-            <th>Author</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="recipe :${recipes}">
-            <td th:text="${recipe.recipeName}"></td>
-            <td th:text="${recipe.prepTime} + ' minutes'"></td>
-            <td th:text="${recipe.cookTime} + ' minutes'"></td>
-            <td th:text="${recipe.totalTime} + ' minutes'"></td>
-            <td th:text="${recipe.ingredients}"></td>
-            <td th:text="${recipe.instructions}"></td>
-            <td th:text="${recipe.dateAdded}"></td>
-            <td th:each="a :${recipe.author}" th:text="${a.firstName}+' '+${a.lastName}"></td>
-            <td>
-                <form th:action="@{/registered/create-plan(recipeId=${recipe.id})}" th:object="${recipe}" method="post">
-                    <button class="btn btn-lg btn-dark" type="submit" th:text="'Create Plan with This Recipe'"></button>
-                </form>
-            </td>
-        </tr>
-        </tbody>
-    </table>
-</div>
-<div class="container p-5 -mt-3" th:if="${count}==0">
-    <p th:text="${searchString}"></p>
-    <h4 th:text="${message}"></h4>
-</div>
 </body>
 </html>
+

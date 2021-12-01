@@ -25,14 +25,13 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String firstName;
-    private String lastName;
+    private String name;
     private String emailId;
     @Column(unique = true)
     private String username;
     private String password;
 
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY,
+    @OneToMany(mappedBy = "author", fetch = FetchType.LAZY,
             cascade = CascadeType.ALL)
     private Set<Recipe> recipes;
 
@@ -40,22 +39,21 @@ public class User {
             cascade = CascadeType.ALL)
     private Set<Meal> meals;
 
-    @ManyToMany(mappedBy = "user_fav", cascade = { CascadeType.ALL })
+    @ManyToMany(mappedBy = "user_fav", cascade = {CascadeType.ALL})
     private Set<Recipe> recipe_fav;
 
     public User() {
     }
 
-    public User(int id, String firstName, String lastName, String emailId, String username, String password, Set<Recipe> recipes, Set<Meal> meals ,Set<Recipe> recipe_fav) {
+    public User(int id, String name, String emailId, String username, String password, Set<Recipe> recipes, Set<Meal> meals, Set<Recipe> recipe_fav) {
         this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.name = name;
         this.emailId = emailId;
         this.username = username;
         this.password = password;
         this.recipes = recipes;
         this.meals = meals;
-        this.recipe_fav=recipe_fav;
+        this.recipe_fav = recipe_fav;
     }
 
     public Set<Meal> getMeals() {
@@ -82,20 +80,12 @@ public class User {
         this.id = id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getName() {
+        return name;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getEmailId() {

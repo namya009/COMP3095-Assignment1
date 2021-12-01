@@ -14,9 +14,8 @@
  **********************************************************************************/
 package ca.gbc.comp3095.recipe.controllers;
 
-import ca.gbc.comp3095.recipe.model.Meal;
-import ca.gbc.comp3095.recipe.model.Recipe;
-import ca.gbc.comp3095.recipe.model.User;
+import ca.gbc.comp3095.recipe.model.*;
+import ca.gbc.comp3095.recipe.repositories.IngredientRepository;
 import ca.gbc.comp3095.recipe.repositories.MealRepository;
 import ca.gbc.comp3095.recipe.repositories.RecipeRepository;
 import ca.gbc.comp3095.recipe.repositories.UserRepository;
@@ -54,9 +53,12 @@ public class RegisteredController {
     @Autowired
     ViewService viewService;
 
+    @Autowired
+    IngredientRepository ingredientRepository;
+
     @RequestMapping({"", "/", "index", "index.html"})
     public String index(Model model,Authentication authentication) {
-        model.addAttribute("uName",userRepository.findByUsername(authentication.getName()).getFirstName()+" "+userRepository.findByUsername(authentication.getName()).getLastName());
+        model.addAttribute("uName",userRepository.findByUsername(authentication.getName()).getName());
         return "registered/index";
     }
 
@@ -64,6 +66,7 @@ public class RegisteredController {
     public String create(Model model) {
         Recipe recipe = new Recipe();
         model.addAttribute("recipe", recipe);
+
         return "registered/create-recipe";
     }
     @RequestMapping({"/create-plan", "create-plan.html"})
@@ -80,13 +83,19 @@ public class RegisteredController {
     @PostMapping(value = "/save")
     public String save(Model model, Recipe recipe, Authentication authentication) {
         User user=userRepository.findByUsername(authentication.getName());
-        model.addAttribute("uName",user.getFirstName()+" "+user.getLastName());
+        model.addAttribute("uName",user.getName());
         recipe.setAuthor(user);
         recipe.setDateAdded(LocalDate.now());
         recipe.setTotalTime(recipe.getPrepTime() + recipe.getCookTime());
         user.getRecipe_fav().add(recipe);
         recipe.getUser_fav().add(user);
         recipeRepository.save(recipe);
+        String[] ingre=recipe.getTemp_ingre().split(",");
+        Ingredient[] ingredients=new Ingredient[ingre.length+1];
+        for (int i=0;i< ingre.length;i++) {
+            ingredients[i]=new Ingredient(recipe,ingre[i]);
+            ingredientRepository.save(ingredients[i]);
+        }
         return "/registered/index";
     }
 
@@ -157,5 +166,14 @@ public class RegisteredController {
             model.addAttribute("message", "No record Found");
         }
         return "/registered/view-recipe";
+    }
+    @RequestMapping({"/view", "view.html"})
+    public String view(Model model, Authentication authentication,HttpServletRequest request) {
+        String recipeId=request.getParameter("recipeId");
+        Recipe recipe=recipeRepository.findById(Integer.parseInt(recipeId));
+        model.addAttribute("recipe",recipe);
+        List<Ingredient> i=ingredientRepository.search(Integer.parseInt(recipeId));
+        model.addAttribute("ingredient",i);
+        return "registered/view";
     }
 }

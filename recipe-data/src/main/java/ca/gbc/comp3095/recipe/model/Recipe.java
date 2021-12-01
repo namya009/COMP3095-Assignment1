@@ -29,40 +29,46 @@ public class Recipe {
     private int prepTime;
     private int cookTime;
     private int totalTime;
-    @Lob
-    private String ingredients;
-    @Lob
-    private String instructions;
     private LocalDate dateAdded;
+    private String temp_ingre;
+    @Lob
+    private String instruction;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    private User author;
 
     @OneToMany(mappedBy = "recipe", fetch = FetchType.LAZY,
             cascade = CascadeType.ALL)
     private Set<Meal> meals;
 
-    @ManyToMany(cascade = { CascadeType.ALL })
-    @JoinTable(name = "user_fav_recipe", joinColumns = { @JoinColumn(name = "recipe_id") }, inverseJoinColumns = {
-            @JoinColumn(name = "user_id") })
+    @ManyToMany(cascade = {CascadeType.ALL})
+    @JoinTable(name = "user_fav_recipe", joinColumns = {@JoinColumn(name = "recipe_id")}, inverseJoinColumns = {
+            @JoinColumn(name = "user_id")})
     private Set<User> user_fav = new HashSet<>();
+
+    @OneToMany(mappedBy = "recipe", fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
+    private Set<Ingredient> ingredients;
+
+
 
     public Recipe() {
     }
 
-    public Recipe(int id, String recipeName, int prepTime, int cookTime, int totalTime, String ingredients, String instructions, LocalDate dateAdded, User user, Set<Meal> meals ,Set<User> user_fav) {
+    public Recipe(int id, String recipeName, int prepTime, int cookTime, int totalTime,String temp_ingre, LocalDate dateAdded, User user, Set<Meal> meals, Set<User> user_fav, Set<Ingredient> ingredients, String instruction) {
         this.id = id;
         this.recipeName = recipeName;
         this.prepTime = prepTime;
         this.cookTime = cookTime;
         this.totalTime = totalTime;
-        this.ingredients = ingredients;
-        this.instructions = instructions;
         this.dateAdded = dateAdded;
-        this.user = user;
+        this.author = user;
         this.meals = meals;
-        this.user_fav=user_fav;
+        this.user_fav = user_fav;
+        this.ingredients = ingredients;
+        this.instruction = instruction;
+        this.temp_ingre=temp_ingre;
     }
 
     public int getId() {
@@ -105,22 +111,6 @@ public class Recipe {
         this.totalTime = totalTime;
     }
 
-    public String getIngredients() {
-        return ingredients;
-    }
-
-    public void setIngredients(String ingredients) {
-        this.ingredients = ingredients;
-    }
-
-    public String getInstructions() {
-        return instructions;
-    }
-
-    public void setInstructions(String instructions) {
-        this.instructions = instructions;
-    }
-
     public LocalDate getDateAdded() {
         return dateAdded;
     }
@@ -130,19 +120,11 @@ public class Recipe {
     }
 
     public User getAuthor() {
-        return user;
+        return author;
     }
 
     public void setAuthor(User user) {
-        this.user = user;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
+        this.author = user;
     }
 
     public Set<Meal> getMeals() {
@@ -159,6 +141,30 @@ public class Recipe {
 
     public void setUser_fav(Set<User> user_fav) {
         this.user_fav = user_fav;
+    }
+
+    public Set<Ingredient> getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(Set<Ingredient> ingredients) {
+        this.ingredients = ingredients;
+    }
+
+    public String getInstruction() {
+        return instruction;
+    }
+
+    public void setInstruction(String instruction) {
+        this.instruction = instruction;
+    }
+
+    public String getTemp_ingre() {
+        return temp_ingre;
+    }
+
+    public void setTemp_ingre(String temp_ingre) {
+        this.temp_ingre = temp_ingre;
     }
 
     @Override
