@@ -11,26 +11,28 @@
     <title>Plan Meal</title>
 </head>
 <body>
-<div class="container p-5 mt-2" th:if="${count &gt; 0}">
+<div class="container p-4 mt-2" th:if="${count &gt; 0}">
     <table class="table">
         <thead>
         <tr>
+            <th></th>
             <th>Date To Be Made</th>
             <th>Recipe Name</th>
             <th>Time It Takes</th>
-            <th>Ingredients</th>
-            <th>Date Added</th>
             <th>Author</th>
+            <th>Description</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="meal :${meals}">
+        <tr th:each="meal, mealStat :${meals}">
+            <td th:text="${mealStat.count}"></td>
             <td th:text="${meal.dateToBeMade}"></td>
             <td th:text="${meal.recipe.recipeName}"></td>
             <td th:text="${meal.recipe.totalTime} + ' minutes'"></td>
-            <td th:text="${meal.recipe.ingredients}"></td>
-            <td th:text="${meal.recipe.dateAdded}"></td>
-            <td th:each="a :${meal.recipe.author}" th:text="${a.firstName}+' '+${a.lastName}"></td>
+            <td th:text="${meal.recipe.author.name}"></td>
+            <td><form th:action="@{/registered/view-recipe(recipeId=${meal.recipe.id})}" th:object="${meal.recipe}" method="post">
+                <button class="btn btn-lg btn-dark" type="submit" th:text="'View Details'"></button>
+            </form></td>
         </tr>
         </tbody>
     </table>
@@ -38,5 +40,6 @@
 <div class="container p-5 -mt-3" th:if="${count}==0">
     <h4 th:text="${message}"></h4>
 </div>
+
 </body>
 </html>

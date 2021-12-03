@@ -9,7 +9,9 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
     <meta charset="UTF-8">
-    <title>Register User</title>
+    <div th:replace="header :: myheader"></div>
+
+    <title>Edit Profile</title>
     <style>
         html, body {
             display: flex;
@@ -87,9 +89,10 @@
     </style>
 </head>
 <body>
+
 <div class="main-block">
-    <h1>Registration</h1>
-    <form th:action="@{/save}" th:object="${user}" method="post">
+    <h1>Edit Profile</h1>
+    <form th:action="@{/registered/save-profile}" th:object="${user}" method="post">
         <hr>
         <table>
             <tr>
@@ -135,13 +138,8 @@
         </table>
         <hr>
         <h4 th:utext="${err}"></h4>
-        <button class="w-100 btn btn-lg btn-dark" type="submit" th:text="'Register'"></button>
+        <button class="w-100 btn btn-lg btn-dark" type="submit" th:text="'Save'"></button>
     </form>
-    <hr>
-    <form th:action="@{/login}">
-        <button class="w-100 btn btn-lg btn-dark" type="submit" th:text="'Go Back'"></button>
-    </form>
-
 </div>
 </body>
 </html>

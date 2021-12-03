@@ -22,7 +22,7 @@
         <td th:text="${recipe.totalTime} + ' minutes'"></td>
         <td th:text="${recipe.dateAdded}"></td>
         <td th:text="${recipe.author.name}"></td>
-        <td><form th:action="@{/registered/view(recipeId=${recipe.id})}" th:object="${recipe}" method="post">
+        <td><form th:action="@{/registered/view-recipe(recipeId=${recipe.id})}" th:object="${recipe}" method="post">
           <button class="btn btn-lg btn-dark" type="submit" th:text="'View Details'"></button>
         </form></td>
       </tr>
@@ -32,8 +32,4 @@
   <div class="container p-5 -mt-3" th:if="${count}==0">
     <h4 th:text="${message}"></h4>
   </div>
-</th:block>
-
-<th:block th:fragment="script2">
-  <div>your content here, instead of this div</div>
 </th:block>

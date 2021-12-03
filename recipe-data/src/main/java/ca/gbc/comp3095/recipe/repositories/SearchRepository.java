@@ -29,7 +29,16 @@ public interface SearchRepository extends JpaRepository<Recipe, Long> {
             "INNER JOIN user_fav_recipe ON Recipe.id LIKE user_fav_recipe.recipe_id " +
             "INNER JOIN user ON user_fav_recipe.user_id LIKE User.id " +
             "WHERE (User.id LIKE %?1%)", nativeQuery=true)
-    List<Recipe> searchAllForUser(String id);
+    List<Recipe> searchFavForUser(String id);
+
+    @Query("SELECT r FROM Recipe r WHERE user_id LIKE %?1%")
+    List<Recipe> searchForUser(String id);
+
+    @Query(value= "SELECT * FROM Recipe " +
+            "INNER JOIN user_fav_recipe ON Recipe.id LIKE user_fav_recipe.recipe_id " +
+            "INNER JOIN user ON user_fav_recipe.user_id LIKE User.id " +
+            "WHERE (User.id LIKE ?#{[0]}) and (Recipe.id LIKE ?#{[1]})", nativeQuery=true)
+    List<Recipe> searchfav(String user_id,String recipe_id);
 
     @Query("SELECT m FROM Meal m WHERE user_id LIKE %?1%")
     List<Meal> searchMeal(String id);

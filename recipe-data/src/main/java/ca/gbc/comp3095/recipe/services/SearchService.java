@@ -32,13 +32,21 @@ public class SearchService {
         return searchRepository.search(keyword);
     }
 
-    public List<Recipe> listAllForUser(int id) {
+    public List<Recipe> listFavForUser(int id) {
         String id2 = Long.toString(id);
-        return searchRepository.searchAllForUser(id2);
+        return searchRepository.searchFavForUser(id2);
+    }
+    public List<Recipe> listForUser(int id) {
+        String id2 = Long.toString(id);
+        return searchRepository.searchForUser(id2);
     }
 
     public List<Meal> listMeal(int id) {
         String id2 = Long.toString(id);
         return searchRepository.searchMeal(id2);
+    }
+
+    public List<Recipe> listFav(String recipe_id,String user_id){
+        return searchRepository.searchfav(user_id,recipe_id);
     }
 }

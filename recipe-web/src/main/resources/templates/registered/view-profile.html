@@ -13,7 +13,7 @@
 <body>
 <h1>View Profile</h1>
 <div class="col-lg-8">
-    <div class="card mb-4">
+    <div class="card mb-4 center">
         <div class="card-body">
             <div class="row">
                 <div class="col-sm-3">
@@ -41,10 +41,57 @@
                     <p class="text-muted mb-0" th:text="${user.username}"></p>
                 </div>
             </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-3">
+                </div>
+                <div class="col-sm-9">
+                    <form th:action="@{/registered/edit-profile}" th:object="${user}" method="post">
+                        <button class="btn btn-lg btn-dark" type="submit" th:text="'Edit Profile'"></button>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
+<h2>Your Favorite Recipes</h2>
 <div th:replace = "/registered/fragment.html::recipe_table">
+</div>
+
+<h2>Recipes Created By You</h2>
+<div class="container p-4 mt-2" th:if="${count2 &gt; 0}">
+    <table class="table">
+        <thead>
+        <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Prep Time</th>
+            <th>Cook Time</th>
+            <th>Total Time</th>
+            <th>Date Added</th>
+            <th>Author Name</th>
+            <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="recipe2 ,recipeStat2:${recipes2}">
+            <td th:text="${recipeStat2.count}"></td>
+            <td th:text="${recipe2.recipeName}"></td>
+            <td th:text="${recipe2.prepTime} + ' minutes'"></td>
+            <td th:text="${recipe2.cookTime} + ' minutes'"></td>
+            <td th:text="${recipe2.totalTime} + ' minutes'"></td>
+            <td th:text="${recipe2.dateAdded}"></td>
+            <td th:text="${recipe2.author.name}"></td>
+            <td><form th:action="@{/registered/view-recipe(recipeId=${recipe2.id})}" th:object="${recipe2}" method="post">
+                <button class="btn btn-lg btn-dark" type="submit" th:text="'View Details'"></button>
+            </form></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div class="container p-5 -mt-3" th:if="${count2}==0">
+    <h4 th:text="${message2}"></h4>
 </div>
 </body>
 </html>

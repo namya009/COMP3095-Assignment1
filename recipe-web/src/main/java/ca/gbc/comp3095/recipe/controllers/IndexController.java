@@ -62,7 +62,7 @@ public class IndexController {
         if (authentication == null || authentication instanceof AnonymousAuthenticationToken) {
             return "/login";
         }
-        return "redirect:/registered/";
+        return "redirect:/registered/index";
     }
 
     @RequestMapping({"/logout", "logout.html"})

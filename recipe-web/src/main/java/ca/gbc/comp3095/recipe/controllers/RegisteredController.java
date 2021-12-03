@@ -23,11 +23,13 @@ import ca.gbc.comp3095.recipe.services.SearchService;
 import ca.gbc.comp3095.recipe.services.ViewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDate;
@@ -87,8 +89,6 @@ public class RegisteredController {
         recipe.setAuthor(user);
         recipe.setDateAdded(LocalDate.now());
         recipe.setTotalTime(recipe.getPrepTime() + recipe.getCookTime());
-        user.getRecipe_fav().add(recipe);
-        recipe.getUser_fav().add(user);
         recipeRepository.save(recipe);
         String[] ingre=recipe.getTemp_ingre().split(",");
         Ingredient[] ingredients=new Ingredient[ingre.length+1];
@@ -109,6 +109,31 @@ public class RegisteredController {
         model.addAttribute("count", m.size());
         model.addAttribute("meals", m);
         return "/registered/plan-meal";
+    }
+    @PostMapping(value = "/add-favorite")
+    public ModelAndView addFav(Model model, HttpServletRequest request, Authentication authentication) {
+        String recipeId=request.getParameter("recipeId");
+        Recipe recipe=recipeRepository.findById(Integer.parseInt(recipeId));
+        User user=userRepository.findByUsername(authentication.getName());
+        model.addAttribute("recipe",recipe);
+        List<Ingredient> i=ingredientRepository.search(Integer.parseInt(recipeId));
+        model.addAttribute("ingredient",i);
+        boolean isAuthorised=false;
+        if(recipe.getAuthor().getId()==user.getId()){
+            isAuthorised=true;
+        }
+        model.addAttribute("isAuthorised",isAuthorised);
+        List<Recipe> resp= searchService.listFav(recipeId,Integer.toString(user.getId()));
+        if(resp.isEmpty()){
+            user.getRecipe_fav().add(recipe);
+            recipe.getUser_fav().add(user);
+        }
+        else{
+            user.getRecipe_fav().remove(recipe);
+            recipe.getUser_fav().remove(user);
+        }
+        recipeRepository.save(recipe);
+        return new ModelAndView("redirect:/registered/view-recipe?recipeId=" + recipeId);
     }
 
     @RequestMapping({"/plan", "/plan-meal", "plan-meal.html"})
@@ -145,7 +170,7 @@ public class RegisteredController {
 
     @RequestMapping({"/view-profile", "view-profile.html"})
     public String viewProfile(Model model, Authentication authentication) {
-        List<Recipe> resp = searchService.listAllForUser(userRepository.findByUsername(authentication.getName()).getId());
+        List<Recipe> resp = searchService.listFavForUser(userRepository.findByUsername(authentication.getName()).getId());
         model.addAttribute("user",userRepository.findByUsername(authentication.getName()));
         model.addAttribute("count", resp.size());
         if (resp.size() > 0) {
@@ -153,11 +178,18 @@ public class RegisteredController {
         } else {
             model.addAttribute("message", "No record Found");
         }
-        return "registered/view-profile";
+        List<Recipe> resp2 = searchService.listForUser(userRepository.findByUsername(authentication.getName()).getId());
+        model.addAttribute("count2", resp2.size());
+        if (resp2.size() > 0) {
+            model.addAttribute("recipes2", resp2);
+        } else {
+            model.addAttribute("message2", "No record Found");
+        }
+        return "/registered/view-profile";
     }
 
-    @RequestMapping({"/view-recipe", "view-recipe.html"})
-    public String viewRecipe(Model model) {
+    @RequestMapping({"/view-recipes", "view-recipes.html"})
+    public String viewRecipes(Model model) {
         List<Recipe> resp = viewService.findAll();
         model.addAttribute("count", resp.size());
         if (resp.size() > 0) {
@@ -165,15 +197,65 @@ public class RegisteredController {
         } else {
             model.addAttribute("message", "No record Found");
         }
+        return "/registered/view-recipes";
+    }
+    @RequestMapping({"/view-recipe", "view-recipe.html"})
+    public String viewRecipe(Model model, Authentication authentication,HttpServletRequest request) {
+        String recipeId=request.getParameter("recipeId");
+        Recipe recipe;
+        Boolean isAuthorised=false;
+        if(recipeId!=null) {
+            recipe = recipeRepository.findById(Integer.parseInt(recipeId));
+            model.addAttribute("recipe", recipe);
+            List<Ingredient> i = ingredientRepository.search(Integer.parseInt(recipeId));
+            model.addAttribute("ingredient", i);
+            User user = userRepository.findByUsername(authentication.getName());
+            List<Recipe> resp = searchService.listFav(recipeId, Integer.toString(user.getId()));
+            if (resp.isEmpty()) {
+                model.addAttribute("fav", false);
+            } else {
+                model.addAttribute("fav", true);
+            }
+            if (recipe.getAuthor().getId() == user.getId()) {
+                isAuthorised = true;
+            }
+            model.addAttribute("isAuthorised", isAuthorised);
+        }
         return "/registered/view-recipe";
     }
-    @RequestMapping({"/view", "view.html"})
-    public String view(Model model, Authentication authentication,HttpServletRequest request) {
-        String recipeId=request.getParameter("recipeId");
-        Recipe recipe=recipeRepository.findById(Integer.parseInt(recipeId));
-        model.addAttribute("recipe",recipe);
-        List<Ingredient> i=ingredientRepository.search(Integer.parseInt(recipeId));
-        model.addAttribute("ingredient",i);
-        return "registered/view";
+    @RequestMapping({"/edit-profile", "edit-profile.html"})
+    public String editProfile(Authentication authentication,Model model) {
+        User user = userRepository.findByUsername(authentication.getName());
+        model.addAttribute("user",user);
+        return "/registered/edit-profile";
+    }
+    @PostMapping(value = "/save-profile")
+    public String saveProfile(User user, Model model,Authentication authentication) {
+        if(userRepository.findByUsername(user.getUsername()) != null){
+            if(!Objects.equals(user.getUsername(), authentication.getName())){
+                model.addAttribute("err","The username <b>"+user.getUsername()+"</b> is already in use.");
+                return "/registered/edit-profile";
+            }
+        }
+        User u=userRepository.findByUsername(authentication.getName());
+
+        String name=user.getName();
+        u.setName(name.substring(0, 1).toUpperCase() + name.substring(1));
+
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String encodedPassword = passwordEncoder.encode(user.getPassword());
+        u.setPassword(encodedPassword);
+
+        u.setEmailId(user.getEmailId());
+
+        u.setUsername(user.getUsername());
+        userRepository.save(u);
+        if (Objects.equals(user.getUsername(), authentication.getName())) {
+            model.addAttribute("uName", u.getName());
+            return "/registered/index";
+        } else {
+            return "/login";
+        }
+
     }
 }
