@@ -24,4 +24,6 @@ import java.util.List;
 public interface IngredientRepository extends CrudRepository<Ingredient, Long> {
     @Query("SELECT i FROM Ingredient i WHERE recipe_id LIKE %?1%")
     List<Ingredient> search(int recipe_id);
+
+    Ingredient findById(int parseInt);
 }

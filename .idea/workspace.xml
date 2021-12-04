@@ -4,23 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f7425b1-4759-4ba3-ae95-3d3cc965e3d3" name="Changes" comment="view ingredient and instuctions done">
-      <change afterPath="$PROJECT_DIR$/recipe-web/src/main/resources/templates/registered/edit-profile.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/recipe-web/src/main/resources/templates/registered/view-recipes.html" afterDir="false" />
+    <list default="true" id="5f7425b1-4759-4ba3-ae95-3d3cc965e3d3" name="Changes" comment="edit profile done">
+      <change afterPath="$PROJECT_DIR$/recipe-web/src/main/resources/templates/registered/edit-ingredient.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/repositories/SearchRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/repositories/SearchRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/services/SearchService.java" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/services/SearchService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe-web/src/main/java/ca/gbc/comp3095/recipe/controllers/IndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-web/src/main/java/ca/gbc/comp3095/recipe/controllers/IndexController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/model/Ingredient.java" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/model/Ingredient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/repositories/IngredientRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/repositories/IngredientRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/recipe-web/src/main/java/ca/gbc/comp3095/recipe/controllers/RegisteredController.java" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-web/src/main/java/ca/gbc/comp3095/recipe/controllers/RegisteredController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe-web/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-web/src/main/resources/data.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe-web/src/main/resources/templates/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-web/src/main/resources/templates/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe-web/src/main/resources/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-web/src/main/resources/templates/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe-web/src/main/resources/templates/registered/fragment.html" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-web/src/main/resources/templates/registered/fragment.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe-web/src/main/resources/templates/registered/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-web/src/main/resources/templates/registered/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe-web/src/main/resources/templates/registered/plan-meal.html" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-web/src/main/resources/templates/registered/plan-meal.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe-web/src/main/resources/templates/registered/view-profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-web/src/main/resources/templates/registered/view-profile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/recipe-web/src/main/resources/templates/registered/view-recipe.html" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-web/src/main/resources/templates/registered/view-recipe.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe-web/src/main/resources/templates/registered/view.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,6 +144,7 @@
       <workItem from="1638316992594" duration="33909000" />
       <workItem from="1638393300597" duration="3337000" />
       <workItem from="1638474144456" duration="7644000" />
+      <workItem from="1638567628079" duration="5365000" />
     </task>
     <task id="LOCAL-00001" summary="half done">
       <created>1636139354252</created>
@@ -246,7 +237,14 @@
       <option name="project" value="LOCAL" />
       <updated>1638349797712</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="edit profile done">
+      <created>1638567693765</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1638567693765</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -386,6 +384,7 @@
     <MESSAGE value="plan meal left from assignment 1" />
     <MESSAGE value="assignment 1 done" />
     <MESSAGE value="view ingredient and instuctions done" />
-    <option name="LAST_COMMIT_MESSAGE" value="view ingredient and instuctions done" />
+    <MESSAGE value="edit profile done" />
+    <option name="LAST_COMMIT_MESSAGE" value="edit profile done" />
   </component>
 </project>

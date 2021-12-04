@@ -46,8 +46,16 @@
             <tr th:each="i ,iStat:${ingredient}">
                 <th class="col-3" th:text="'Ingredient '+${iStat.count}+' of '+${iStat.size}"></th>
                 <td th:text="${i.item}"></td>
-                <td class="col-2" th:if="${isAuthorised}">Edit Ingredient</td>
-                <td class="col-2" th:if="${isAuthorised}">Remove Ingredient</td>
+                <td class="col-2" th:if="${isAuthorised}">
+                    <form th:action="@{/registered/edit-ingredient(ingredientId=${i.id})}" method="post">
+                        <button class="btn btn-dark" type="submit" th:text="'Edit Ingredient'"></button>
+                    </form>
+                </td>
+                <td class="col-2" th:if="${isAuthorised}">
+                    <form th:action="@{/registered/delete-ingredient(recipeId=${recipe.id},ingredientId=${i.id})}" method="post">
+                        <button class="btn btn-dark" type="submit" th:text="'Remove Ingredient'"></button>
+                    </form>
+                </td>
                 <td class="col-2">
                     Add To Shopping List
                     <!--<form th:action="@{/registered/view(recipeId=${recipe.id})}" th:object="${recipe}" method="post">
