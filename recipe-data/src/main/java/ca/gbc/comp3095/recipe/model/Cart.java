@@ -10,8 +10,8 @@
  *             101284685
  *             101283555
  * Date: 7th Nov
- * Description: This file creates meal table.
- *              This table is needed to plan meals.
+ * Description: This file creates ingredient table.
+ *              This table is needed to Add recipe items to shopping list.
  **********************************************************************************/
 package ca.gbc.comp3095.recipe.model;
 
@@ -19,31 +19,19 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-public class Meal {
+public class Cart {
 
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
 private int id;
 
-private String dateToBeMade;
-
 @ManyToOne(fetch = FetchType.LAZY, optional = false)
-@JoinColumn(name = "recipe_id", nullable = false)
-private Recipe recipe;
+@JoinColumn(name = "ingredient_id", nullable = false)
+private Ingredient ingredient;
 
 @ManyToOne(fetch = FetchType.LAZY, optional = false)
 @JoinColumn(name = "user_id", nullable = false)
 private User user;
-
-public Meal() {
-}
-
-public Meal(int id, String dateToBeMade, Recipe recipe, User user) {
-	this.id = id;
-	this.dateToBeMade = dateToBeMade;
-	this.recipe = recipe;
-	this.user = user;
-}
 
 public int getId() {
 	return id;
@@ -53,20 +41,12 @@ public void setId(int id) {
 	this.id = id;
 }
 
-public String getDateToBeMade() {
-	return dateToBeMade;
+public Ingredient getIngredient() {
+	return ingredient;
 }
 
-public void setDateToBeMade(String dateToBeMade) {
-	this.dateToBeMade = dateToBeMade;
-}
-
-public Recipe getRecipe() {
-	return recipe;
-}
-
-public void setRecipe(Recipe recipe) {
-	this.recipe = recipe;
+public void setIngredient(Ingredient ingredient) {
+	this.ingredient = ingredient;
 }
 
 public User getUser() {
@@ -81,8 +61,8 @@ public void setUser(User user) {
 public boolean equals(Object o) {
 	if (this == o) return true;
 	if (o == null || getClass() != o.getClass()) return false;
-	Meal meal = (Meal) o;
-	return Objects.equals(id, meal.id);
+	Cart cart = (Cart) o;
+	return Objects.equals(id, cart.id);
 }
 
 @Override
@@ -90,4 +70,3 @@ public int hashCode() {
 	return Objects.hash(id);
 }
 }
-

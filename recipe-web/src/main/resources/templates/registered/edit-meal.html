@@ -24,10 +24,10 @@
     </style>
 </head>
 <body class="text-center">
-<h1>Create Plan</h1>
+<h1>Update Plan</h1>
 <br/>
-<p th:text="${recipe.recipeName}"></p>
-<form th:action="@{/registered/save-meal(recipeId=${recipe.id})}" th:object="${meal}" method="post">
+<p th:text="${meal.recipe.recipeName}"></p>
+<form th:action="@{/registered/update-meal(mealId=${meal.id})}" th:object="${meal}" method="post">
     <div class="row mb-3">
         <label class="col-sm-2" th:text="'Planning date:'"></label>
         <div class="col-sm-8">

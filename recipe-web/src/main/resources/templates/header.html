@@ -2,6 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Title</title>
 </head>
 <body>
@@ -47,6 +48,9 @@
                            th:href="@{/registered/plan-meal}" th:text="'Plan Meal'"></a>
                     </li>
                 </ul>
+                <a th:href="@{/doLogout}" id="cart-btn">
+                    <i class="fa fa-shopping-cart fa-lg"></i>
+                </a>
                 <form th:action="@{/doLogout}" method="post">
                     <button class="btn btn-lg btn-dark" type="submit" th:text="'Logout'"></button>
                 </form>

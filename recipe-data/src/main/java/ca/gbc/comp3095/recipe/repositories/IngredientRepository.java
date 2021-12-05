@@ -15,15 +15,14 @@
 package ca.gbc.comp3095.recipe.repositories;
 
 import ca.gbc.comp3095.recipe.model.Ingredient;
-import ca.gbc.comp3095.recipe.model.Recipe;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
 public interface IngredientRepository extends CrudRepository<Ingredient, Long> {
-    @Query("SELECT i FROM Ingredient i WHERE recipe_id LIKE %?1%")
-    List<Ingredient> search(int recipe_id);
+@Query("SELECT i FROM Ingredient i WHERE recipe_id LIKE %?1%")
+List<Ingredient> search(int recipe_id);
 
-    Ingredient findById(int parseInt);
+Ingredient findById(int parseInt);
 }

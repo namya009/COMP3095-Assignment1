@@ -20,11 +20,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class RecipeApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(RecipeApplication.class, args);
-        //Every default details are in admin.
-        //username=admin,pass=admin.
+public static void main(String[] args) {
+	SpringApplication.run(RecipeApplication.class, args);
+	//Every default details are in admin.
+	//username=admin,pass=admin.
 
-    }
+}
 
 }

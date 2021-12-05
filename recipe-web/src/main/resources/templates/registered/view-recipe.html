@@ -24,79 +24,83 @@
     <title>Details of Recipe</title>
 </head>
 <body>
-    <div class="container p-5 mt-2">
-        <table class="table">
-            <tr>
-                <th class="col-1">Recipe Name</th>
-                <td colspan="4" th:text="${recipe.recipeName}"></td>
-            </tr>
-            <tr>
-                <th>Preparation Time</th>
-                <td colspan="4" th:text="${recipe.prepTime}"></td>
-            </tr>
+<div class="container p-5 mt-2">
+    <table class="table">
+        <tr>
+            <th class="col-1">Recipe Name</th>
+            <td colspan="4" th:text="${recipe.recipeName}"></td>
+        </tr>
+        <tr>
+            <th>Preparation Time</th>
+            <td colspan="4" th:text="${recipe.prepTime}"></td>
+        </tr>
 
-            <tr>
-                <th>Cook Time</th>
-                <td colspan="4" th:text="${recipe.cookTime}"></td>
-            </tr>
-            <tr>
-                <th>Total Time</th>
-                <td colspan="4" th:text="${recipe.totalTime}"></td>
-            </tr>
-            <tr th:each="i ,iStat:${ingredient}">
-                <th class="col-3" th:text="'Ingredient '+${iStat.count}+' of '+${iStat.size}"></th>
-                <td th:text="${i.item}"></td>
-                <td class="col-2" th:if="${isAuthorised}">
-                    <form th:action="@{/registered/edit-ingredient(ingredientId=${i.id})}" method="post">
-                        <button class="btn btn-dark" type="submit" th:text="'Edit Ingredient'"></button>
-                    </form>
-                </td>
-                <td class="col-2" th:if="${isAuthorised}">
-                    <form th:action="@{/registered/delete-ingredient(recipeId=${recipe.id},ingredientId=${i.id})}" method="post">
-                        <button class="btn btn-dark" type="submit" th:text="'Remove Ingredient'"></button>
-                    </form>
-                </td>
-                <td class="col-2">
-                    Add To Shopping List
-                    <!--<form th:action="@{/registered/view(recipeId=${recipe.id})}" th:object="${recipe}" method="post">
-                        <button class="btn btn-lg btn-dark" type="submit" th:text="'View Details'"></button>
-                    </form>-->
-                </td>
+        <tr>
+            <th>Cook Time</th>
+            <td colspan="4" th:text="${recipe.cookTime}"></td>
+        </tr>
+        <tr>
+            <th>Total Time</th>
+            <td colspan="4" th:text="${recipe.totalTime}"></td>
+        </tr>
+        <tr th:each="i ,iStat:${ingredient}">
+            <th class="col-3" th:text="'Ingredient '+${iStat.count}+' of '+${iStat.size}"></th>
+            <td th:text="${i.item}"></td>
+            <td class="col-2" th:if="${isAuthorised}">
+                <form th:action="@{/registered/edit-ingredient(ingredientId=${i.id})}" method="post">
+                    <button class="btn btn-dark" type="submit" th:text="'Edit Ingredient'"></button>
+                </form>
+            </td>
+            <td class="col-2" th:if="${isAuthorised}">
+                <form th:action="@{/registered/delete-ingredient(recipeId=${recipe.id},ingredientId=${i.id})}"
+                      method="post">
+                    <button class="btn btn-dark" type="submit" th:text="'Remove Ingredient'"></button>
+                </form>
+            </td>
+            <td class="col-2">
+                Add To Shopping List
+                <!--<form th:action="@{/registered/view(recipeId=${recipe.id})}" th:object="${recipe}" method="post">
+                    <button class="btn btn-lg btn-dark" type="submit" th:text="'View Details'"></button>
+                </form>-->
+            </td>
 
-            </tr>
-            <tr>
-                <th>Instructions</th>
-                <td colspan="4" th:text="${recipe.instruction}"></td>
-            </tr>
-            <tr>
-                <th>Date Added</th>
-                <td colspan="4" th:text="${recipe.dateAdded}"></td>
-            </tr>
-            <tr>
-                <th>Author</th>
-                <td colspan="4" th:text="${recipe.author.name}"></td>
-            </tr>
-        </table>
-        <table class="table text-center">
-            <tr>
-                <td>
-                    <form th:action="@{/registered/add-favorite(recipeId=${recipe.id})}" th:object="${recipe}" method="post">
-                        <button class="btn btn-lg btn-dark" type="submit" th:if="${fav}" th:text="'Remove from favorite'"></button>
-                        <button class="btn btn-lg btn-dark" type="submit" th:if="${!fav}" th:text="'Add to favorite'"></button>
-                    </form>
-                </td>
-                <td>
-                    <form th:action="@{/registered/create-plan(recipeId=${recipe.id})}" th:object="${recipe}" method="post">
-                        <button class="btn btn-lg btn-dark" type="submit" th:text="'Make Plan'"></button>
-                    </form>
-                </td>
-                <td>
-                    <form th:action="@{/registered/index}" th:object="${recipe}" method="post">
-                        <button class="btn btn-lg btn-dark" type="submit" th:text="'Go Back'"></button>
-                    </form>
-                </td>
-            </tr>
-        </table>
-    </div>
+        </tr>
+        <tr>
+            <th>Instructions</th>
+            <td colspan="4" th:text="${recipe.instruction}"></td>
+        </tr>
+        <tr>
+            <th>Date Added</th>
+            <td colspan="4" th:text="${recipe.dateAdded}"></td>
+        </tr>
+        <tr>
+            <th>Author</th>
+            <td colspan="4" th:text="${recipe.author.name}"></td>
+        </tr>
+    </table>
+    <table class="table text-center">
+        <tr>
+            <td>
+                <form th:action="@{/registered/add-favorite(recipeId=${recipe.id})}" th:object="${recipe}"
+                      method="post">
+                    <button class="btn btn-lg btn-dark" type="submit" th:if="${fav}"
+                            th:text="'Remove from favorite'"></button>
+                    <button class="btn btn-lg btn-dark" type="submit" th:if="${!fav}"
+                            th:text="'Add to favorite'"></button>
+                </form>
+            </td>
+            <td>
+                <form th:action="@{/registered/create-plan(recipeId=${recipe.id})}" method="post">
+                    <button class="btn btn-lg btn-dark" type="submit" th:text="'Make Plan'"></button>
+                </form>
+            </td>
+            <td>
+                <form th:action="@{/registered/index}" th:object="${recipe}" method="post">
+                    <button class="btn btn-lg btn-dark" type="submit" th:text="'Go Back'"></button>
+                </form>
+            </td>
+        </tr>
+    </table>
+</div>
 </body>
 </html>

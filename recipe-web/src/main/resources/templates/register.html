@@ -7,7 +7,8 @@
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
             crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+          integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
     <meta charset="UTF-8">
     <title>Register User</title>
     <style>
@@ -16,6 +17,7 @@
             justify-content: center;
             height: 100%;
         }
+
         body, div, h1, form, input, p {
             padding: 0;
             margin: 0;
@@ -24,48 +26,57 @@
             font-size: 16px;
             color: #666;
         }
+
         h1 {
             padding: 10px 0;
             font-size: 32px;
             font-weight: 300;
             text-align: center;
         }
+
         p {
             font-size: 12px;
         }
+
         hr {
             color: #a9a9a9;
             opacity: 0.3;
         }
+
         .main-block {
             min-width: 360px;
             padding: 10px 0;
             margin: auto;
             border-radius: 5px;
             border: solid 1px #ccc;
-            box-shadow: 1px 2px 5px rgba(0,0,0,.31);
+            box-shadow: 1px 2px 5px rgba(0, 0, 0, .31);
             background: #ebebeb;
         }
+
         form {
             margin: 0 30px;
         }
+
         label#icon {
             margin: 0;
             border-radius: 5px 0 0 5px;
         }
+
         #icon {
             display: inline-block;
             padding: 9px 15px;
-            box-shadow: 1px 2px 5px rgba(0,0,0,.09);
+            box-shadow: 1px 2px 5px rgba(0, 0, 0, .09);
             background: #1c87c9;
             color: #fff;
             text-align: center;
         }
-        input{
+
+        input {
             border-radius: 0 5px 5px 0;
             height: 44px;
             width: 252px;
         }
+
         button {
             width: 100%;
             padding: 10px 0;
@@ -77,11 +88,13 @@
             font-weight: 600;
             color: #fff;
         }
+
         button:hover {
             background: #26a9e0;
         }
-        table{
-            margin:0;
+
+        table {
+            margin: 0;
             width: 100%;
         }
     </style>
@@ -107,7 +120,8 @@
                     <label id="icon" for="name"><i class="fas fa-envelope"></i></label>
                 </td>
                 <td>
-                    <input id="name" name="name" type="email" class="form-control" th:field="*{emailId}" th:required="true"
+                    <input id="name" name="name" type="email" class="form-control" th:field="*{emailId}"
+                           th:required="true"
                            th:oninvalid="this.setCustomValidity('EmailId cannot be blank')"
                            th:oninput="this.setCustomValidity('')"/>
                 </td>
@@ -117,7 +131,8 @@
                     <label id="icon" for="name"><i class="fas fa-user"></i></label>
                 </td>
                 <td>
-                    <input id="name" name="name" type="text" class="form-control" th:field="*{username}" th:required="true"
+                    <input id="name" name="name" type="text" class="form-control" th:field="*{username}"
+                           th:required="true"
                            th:oninvalid="this.setCustomValidity('Username cannot be blank')"
                            th:oninput="this.setCustomValidity('')"/>
                 </td>
@@ -127,7 +142,8 @@
                     <label id="icon" for="name"><i class="fas fa-unlock-alt"></i></label>
                 </td>
                 <td>
-                    <input id="name" name="name" type="password" class="form-control" th:field="*{password}" th:required="true"
+                    <input id="name" name="name" type="password" class="form-control" th:field="*{password}"
+                           th:required="true"
                            th:oninvalid="this.setCustomValidity('Password cannot be blank')"
                            th:oninput="this.setCustomValidity('')"/>
                 </td>

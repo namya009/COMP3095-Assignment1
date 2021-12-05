@@ -25,28 +25,29 @@ import java.util.List;
 @Service
 public class SearchService {
 
-    @Autowired
-    private SearchRepository searchRepository;
+@Autowired
+private SearchRepository searchRepository;
 
-    public List<Recipe> listAll(String keyword) {
-        return searchRepository.search(keyword);
-    }
+public List<Recipe> listAll(String keyword) {
+	return searchRepository.search(keyword);
+}
 
-    public List<Recipe> listFavForUser(int id) {
-        String id2 = Long.toString(id);
-        return searchRepository.searchFavForUser(id2);
-    }
-    public List<Recipe> listForUser(int id) {
-        String id2 = Long.toString(id);
-        return searchRepository.searchForUser(id2);
-    }
+public List<Recipe> listFavForUser(int id) {
+	String id2 = Long.toString(id);
+	return searchRepository.searchFavForUser(id2);
+}
 
-    public List<Meal> listMeal(int id) {
-        String id2 = Long.toString(id);
-        return searchRepository.searchMeal(id2);
-    }
+public List<Recipe> listForUser(int id) {
+	String id2 = Long.toString(id);
+	return searchRepository.searchForUser(id2);
+}
 
-    public List<Recipe> listFav(String recipe_id,String user_id){
-        return searchRepository.searchfav(user_id,recipe_id);
-    }
+public List<Meal> listMeal(int id) {
+	String id2 = Long.toString(id);
+	return searchRepository.searchMeal(id2);
+}
+
+public List<Recipe> listFav(String recipe_id, String user_id) {
+	return searchRepository.searchfav(user_id, recipe_id);
+}
 }

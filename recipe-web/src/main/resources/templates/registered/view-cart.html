@@ -8,7 +8,7 @@
             crossorigin="anonymous"></script>
     <div th:replace="header :: myheader"></div>
     <meta charset="UTF-8">
-    <title>Plan Meal</title>
+    <title>View Cart</title>
 </head>
 <body>
 <div class="container p-4 mt-2" th:if="${count &gt; 0}">
@@ -16,10 +16,9 @@
         <thead>
         <tr>
             <th></th>
-            <th>Date To Be Made</th>
-            <th>Recipe Name</th>
-            <th>Time It Takes</th>
-            <th>Author</th>
+            <th>Item</th>
+            <th>For</th>
+            <th>Plan to Cook</th>
             <th>Description</th>
         </tr>
         </thead>
