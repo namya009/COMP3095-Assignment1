@@ -43,3 +43,5 @@ VALUES (2, '2021-11-10', 2, 1);
 
 INSERT INTO user_fav_recipe(recipe_id, user_id)
 VALUES (2, 1);
+
+INSERT INTO cart(ingredient_id,user_id) VALUES (1,1)

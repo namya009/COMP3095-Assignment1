@@ -21,52 +21,65 @@ import java.util.Objects;
 @Entity
 public class Cart {
 
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-private int id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
 
-@ManyToOne(fetch = FetchType.LAZY, optional = false)
-@JoinColumn(name = "ingredient_id", nullable = false)
-private Ingredient ingredient;
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@JoinColumn(name = "ingredient_id", nullable = false)
+	private Ingredient ingredient;
 
-@ManyToOne(fetch = FetchType.LAZY, optional = false)
-@JoinColumn(name = "user_id", nullable = false)
-private User user;
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@JoinColumn(name = "user_id", nullable = false)
+	private User user;
 
-public int getId() {
-	return id;
-}
+	public Cart(int id, Ingredient ingredient, User user) {
+		this.id = id;
+		this.ingredient = ingredient;
+		this.user = user;
+	}
+	public Cart(Ingredient ingredient, User user) {
+		this.ingredient = ingredient;
+		this.user = user;
+	}
 
-public void setId(int id) {
-	this.id = id;
-}
+	public Cart() {
+	}
 
-public Ingredient getIngredient() {
-	return ingredient;
-}
+	public int getId() {
+		return id;
+	}
 
-public void setIngredient(Ingredient ingredient) {
-	this.ingredient = ingredient;
-}
+	public void setId(int id) {
+		this.id = id;
+	}
 
-public User getUser() {
-	return user;
-}
+	public Ingredient getIngredient() {
+		return ingredient;
+	}
 
-public void setUser(User user) {
-	this.user = user;
-}
+	public void setIngredient(Ingredient ingredient) {
+		this.ingredient = ingredient;
+	}
 
-@Override
-public boolean equals(Object o) {
-	if (this == o) return true;
-	if (o == null || getClass() != o.getClass()) return false;
-	Cart cart = (Cart) o;
-	return Objects.equals(id, cart.id);
-}
+	public User getUser() {
+		return user;
+	}
 
-@Override
-public int hashCode() {
-	return Objects.hash(id);
-}
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Cart cart = (Cart) o;
+		return Objects.equals(id, cart.id);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
 }

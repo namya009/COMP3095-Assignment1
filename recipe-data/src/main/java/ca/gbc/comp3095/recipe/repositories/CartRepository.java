@@ -10,20 +10,14 @@
  *             101284685
  *             101283555
  * Date: 4th Nov
- * Description: This java file is used to do crud functions in recipe table.
+ * Description: This java file is used to do crud functions in Cart table.
  **********************************************************************************/
 package ca.gbc.comp3095.recipe.repositories;
 
-import ca.gbc.comp3095.recipe.model.Recipe;
-import org.springframework.data.jpa.repository.Query;
+import ca.gbc.comp3095.recipe.model.Cart;
 import org.springframework.data.repository.CrudRepository;
 
-import java.util.List;
+public interface CartRepository extends CrudRepository<Cart, Long> {
 
-public interface RecipeRepository extends CrudRepository<Recipe, Long> {
-
-	@Query("SELECT r FROM Recipe r order by r.dateAdded")
-	List<Recipe> findAll();
-
-	Recipe findById(int recipeId);
+	Cart findById(int parseInt);
 }

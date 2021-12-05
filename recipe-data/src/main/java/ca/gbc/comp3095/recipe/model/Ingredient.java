@@ -17,68 +17,81 @@ package ca.gbc.comp3095.recipe.model;
 
 import javax.persistence.*;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 public class Ingredient {
 
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-private int id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
 
-@ManyToOne(fetch = FetchType.LAZY, optional = false)
-@JoinColumn(name = "recipe_id", nullable = false)
-private Recipe recipe;
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@JoinColumn(name = "recipe_id", nullable = false)
+	private Recipe recipe;
 
-private String item;
+	@OneToMany(mappedBy = "ingredient", fetch = FetchType.LAZY,
+			cascade = CascadeType.ALL)
+	private Set<Cart> cart;
 
-public Ingredient(int id, Recipe recipe, String item) {
-	this.id = id;
-	this.recipe = recipe;
-	this.item = item;
-}
+	private String item;
 
-public Ingredient(Recipe recipe, String item) {
-	this.recipe = recipe;
-	this.item = item;
-}
+	public Ingredient(int id, Recipe recipe, String item) {
+		this.id = id;
+		this.recipe = recipe;
+		this.item = item;
+	}
 
-public Ingredient() {
-}
+	public Ingredient(Recipe recipe, String item) {
+		this.recipe = recipe;
+		this.item = item;
+	}
 
-public int getId() {
-	return id;
-}
+	public Ingredient() {
+	}
 
-public void setId(int id) {
-	this.id = id;
-}
+	public int getId() {
+		return id;
+	}
 
-public Recipe getRecipe() {
-	return recipe;
-}
+	public void setId(int id) {
+		this.id = id;
+	}
 
-public void setRecipe(Recipe recipe) {
-	this.recipe = recipe;
-}
+	public Recipe getRecipe() {
+		return recipe;
+	}
 
-public String getItem() {
-	return item;
-}
+	public void setRecipe(Recipe recipe) {
+		this.recipe = recipe;
+	}
 
-public void setItem(String item) {
-	this.item = item;
-}
+	public String getItem() {
+		return item;
+	}
 
-@Override
-public boolean equals(Object o) {
-	if (this == o) return true;
-	if (o == null || getClass() != o.getClass()) return false;
-	Ingredient ingredient = (Ingredient) o;
-	return Objects.equals(id, ingredient.id);
-}
+	public void setItem(String item) {
+		this.item = item;
+	}
 
-@Override
-public int hashCode() {
-	return Objects.hash(id);
-}
+	public Set<Cart> getCart() {
+		return cart;
+	}
+
+	public void setCart(Set<Cart> cart) {
+		this.cart = cart;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Ingredient ingredient = (Ingredient) o;
+		return Objects.equals(id, ingredient.id);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
 }

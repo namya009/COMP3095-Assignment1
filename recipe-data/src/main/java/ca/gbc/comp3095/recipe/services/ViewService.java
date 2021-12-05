@@ -23,10 +23,10 @@ import java.util.List;
 
 @Service
 public class ViewService {
-@Autowired
-private RecipeRepository recipeRepository;
+	@Autowired
+	private RecipeRepository recipeRepository;
 
-public List<Recipe> findAll() {
-	return recipeRepository.findAll();
-}
+	public List<Recipe> findAll() {
+		return recipeRepository.findAll();
+	}
 }

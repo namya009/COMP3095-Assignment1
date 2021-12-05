@@ -11,48 +11,50 @@
     <title>Plan Meal</title>
 </head>
 <body>
-<div class="container p-4 mt-2" th:if="${count &gt; 0}">
-    <table class="table">
-        <thead>
-        <tr>
-            <th></th>
-            <th>Date To Be Made</th>
-            <th>Recipe Name</th>
-            <th>Time It Takes</th>
-            <th>Author</th>
-            <th>Description</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="meal, mealStat :${meals}">
-            <td th:text="${mealStat.count}"></td>
-            <td th:text="${meal.dateToBeMade}"></td>
-            <td th:text="${meal.recipe.recipeName}"></td>
-            <td th:text="${meal.recipe.totalTime} + ' minutes'"></td>
-            <td th:text="${meal.recipe.author.name}"></td>
-            <td>
-                <form th:action="@{/registered/view-recipe(recipeId=${meal.recipe.id})}" th:object="${meal.recipe}"
-                      method="post">
-                    <button class="btn btn-lg btn-dark" type="submit" th:text="'View Recipe'"></button>
-                </form>
-            </td>
-            <td>
-                <form th:action="@{/registered/edit-meal(mealId=${meal.id})}" method="post">
-                    <button class="btn btn-lg btn-dark" type="submit" th:text="'Edit'"></button>
-                </form>
-            </td>
-            <td>
-                <form th:action="@{/registered/delete-meal(mealId=${meal.id})}" method="post">
-                    <button class="btn btn-lg btn-dark" type="submit" th:text="'Delete'"></button>
-                </form>
-            </td>
-        </tr>
-        </tbody>
-    </table>
-</div>
-<div class="container p-5 -mt-3" th:if="${count}==0">
-    <h4 th:text="${message}"></h4>
-</div>
+<th:block th:fragment="plan-table">
 
+    <div class="container p-4 mt-2" th:if="${count &gt; 0}">
+        <table class="table">
+            <thead>
+            <tr>
+                <th></th>
+                <th>Date To Be Made</th>
+                <th>Recipe Name</th>
+                <th>Time It Takes</th>
+                <th>Author</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="meal, mealStat :${meals}">
+                <td th:text="${mealStat.count}"></td>
+                <td th:text="${meal.dateToBeMade}"></td>
+                <td th:text="${meal.recipe.recipeName}"></td>
+                <td th:text="${meal.recipe.totalTime} + ' minutes'"></td>
+                <td th:text="${meal.recipe.author.name}"></td>
+                <td>
+                    <form th:action="@{/registered/view-recipe(recipeId=${meal.recipe.id})}" th:object="${meal.recipe}"
+                          method="post">
+                        <button class="btn btn-lg btn-dark" type="submit" th:text="'View Recipe'"></button>
+                    </form>
+                </td>
+                <td>
+                    <form th:action="@{/registered/edit-meal(mealId=${meal.id})}" method="post">
+                        <button class="btn btn-lg btn-dark" type="submit" th:text="'Edit'"></button>
+                    </form>
+                </td>
+                <td>
+                    <form th:action="@{/registered/delete-meal(mealId=${meal.id})}" method="post">
+                        <button class="btn btn-lg btn-dark" type="submit" th:text="'Delete'"></button>
+                    </form>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="container p-5 -mt-3" th:if="${count}==0">
+        <h4 th:text="${message}"></h4>
+    </div>
+</th:block>
 </body>
 </html>

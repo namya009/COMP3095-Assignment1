@@ -48,7 +48,7 @@
             <td th:text="${i.item}"></td>
             <td class="col-2" th:if="${isAuthorised}">
                 <form th:action="@{/registered/edit-ingredient(ingredientId=${i.id})}" method="post">
-                    <button class="btn btn-dark" type="submit" th:text="'Edit Ingredient'"></button>
+                    <button class="btn btn-dark" type="submit">Edit This Ingredient</button>
                 </form>
             </td>
             <td class="col-2" th:if="${isAuthorised}">
@@ -58,10 +58,9 @@
                 </form>
             </td>
             <td class="col-2">
-                Add To Shopping List
-                <!--<form th:action="@{/registered/view(recipeId=${recipe.id})}" th:object="${recipe}" method="post">
-                    <button class="btn btn-lg btn-dark" type="submit" th:text="'View Details'"></button>
-                </form>-->
+                <form th:action="@{/registered/save-to-cart(recipeId=${recipe.id},ingredientId=${i.id})}" method="post">
+                    <button class="btn btn-dark" type="submit" th:text="'Add To Shopping List'"></button>
+                </form>
             </td>
 
         </tr>

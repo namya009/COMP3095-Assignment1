@@ -11,47 +11,35 @@
     <title>View Cart</title>
 </head>
 <body>
-<div class="container p-4 mt-2" th:if="${count &gt; 0}">
+<div class="container p-4 mt-2" th:if="${count2 &gt; 0}">
     <table class="table">
         <thead>
         <tr>
             <th></th>
             <th>Item</th>
             <th>For</th>
-            <th>Plan to Cook</th>
             <th>Description</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="meal, mealStat :${meals}">
-            <td th:text="${mealStat.count}"></td>
-            <td th:text="${meal.dateToBeMade}"></td>
-            <td th:text="${meal.recipe.recipeName}"></td>
-            <td th:text="${meal.recipe.totalTime} + ' minutes'"></td>
-            <td th:text="${meal.recipe.author.name}"></td>
+        <tr th:each="cart, cartStat :${cart}">
+            <td th:text="${cartStat.count}"></td>
+            <td th:text="${cart.ingredient.item}"></td>
+            <td th:text="${cart.ingredient.recipe.recipeName}"></td>
+            <td></td>
             <td>
-                <form th:action="@{/registered/view-recipe(recipeId=${meal.recipe.id})}" th:object="${meal.recipe}"
-                      method="post">
-                    <button class="btn btn-lg btn-dark" type="submit" th:text="'View Recipe'"></button>
-                </form>
-            </td>
-            <td>
-                <form th:action="@{/registered/edit-meal(mealId=${meal.id})}" method="post">
-                    <button class="btn btn-lg btn-dark" type="submit" th:text="'Edit'"></button>
-                </form>
-            </td>
-            <td>
-                <form th:action="@{/registered/delete-meal(mealId=${meal.id})}" method="post">
-                    <button class="btn btn-lg btn-dark" type="submit" th:text="'Delete'"></button>
+                <form th:action="@{/registered/delete-cart(cartId=${cart.id})}" method="post">
+                    <button class="btn btn-lg btn-dark" type="submit" th:text="'Remove Item'"></button>
                 </form>
             </td>
         </tr>
         </tbody>
     </table>
 </div>
-<div class="container p-5 -mt-3" th:if="${count}==0">
-    <h4 th:text="${message}"></h4>
+<div class="container p-5 -mt-3" th:if="${count2}==0">
+    <h4 th:text="${message2}"></h4>
 </div>
-
+<div th:replace="/registered/plan-meal.html::plan-table">
+</div>
 </body>
 </html>

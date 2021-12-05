@@ -22,114 +22,127 @@ import java.util.Set;
 @Entity
 public class User {
 
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-private int id;
-private String name;
-private String emailId;
-@Column(unique = true)
-private String username;
-private String password;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+	private String name;
+	private String emailId;
+	@Column(unique = true)
+	private String username;
+	private String password;
 
-@OneToMany(mappedBy = "author", fetch = FetchType.LAZY,
-		cascade = CascadeType.ALL)
-private Set<Recipe> recipes;
+	@OneToMany(mappedBy = "author", fetch = FetchType.LAZY,
+			cascade = CascadeType.ALL)
+	private Set<Recipe> recipes;
 
-@OneToMany(mappedBy = "user", fetch = FetchType.LAZY,
-		cascade = CascadeType.ALL)
-private Set<Meal> meals;
+	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY,
+			cascade = CascadeType.ALL)
+	private Set<Meal> meals;
 
-@ManyToMany(mappedBy = "user_fav", cascade = {CascadeType.ALL})
-private Set<Recipe> recipe_fav;
+	@ManyToMany(mappedBy = "user_fav", cascade = {CascadeType.ALL})
+	private Set<Recipe> recipe_fav;
 
-public User() {
-}
+	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY,
+			cascade = CascadeType.ALL)
+	private Set<Cart> cart;
 
-public User(int id, String name, String emailId, String username, String password, Set<Recipe> recipes, Set<Meal> meals, Set<Recipe> recipe_fav) {
-	this.id = id;
-	this.name = name;
-	this.emailId = emailId;
-	this.username = username;
-	this.password = password;
-	this.recipes = recipes;
-	this.meals = meals;
-	this.recipe_fav = recipe_fav;
-}
 
-public Set<Meal> getMeals() {
-	return meals;
-}
+	public User() {
+	}
 
-public void setMeals(Set<Meal> meals) {
-	this.meals = meals;
-}
+	public User(int id, String name, String emailId, String username, String password, Set<Recipe> recipes, Set<Meal> meals, Set<Recipe> recipe_fav) {
+		this.id = id;
+		this.name = name;
+		this.emailId = emailId;
+		this.username = username;
+		this.password = password;
+		this.recipes = recipes;
+		this.meals = meals;
+		this.recipe_fav = recipe_fav;
+	}
 
-public Set<Recipe> getRecipe_fav() {
-	return recipe_fav;
-}
+	public Set<Meal> getMeals() {
+		return meals;
+	}
 
-public void setRecipe_fav(Set<Recipe> recipe_fav) {
-	this.recipe_fav = recipe_fav;
-}
+	public void setMeals(Set<Meal> meals) {
+		this.meals = meals;
+	}
 
-public int getId() {
-	return id;
-}
+	public Set<Recipe> getRecipe_fav() {
+		return recipe_fav;
+	}
 
-public void setId(int id) {
-	this.id = id;
-}
+	public void setRecipe_fav(Set<Recipe> recipe_fav) {
+		this.recipe_fav = recipe_fav;
+	}
 
-public String getName() {
-	return name;
-}
+	public int getId() {
+		return id;
+	}
 
-public void setName(String name) {
-	this.name = name;
-}
+	public void setId(int id) {
+		this.id = id;
+	}
 
-public String getEmailId() {
-	return emailId;
-}
+	public String getName() {
+		return name;
+	}
 
-public void setEmailId(String emailId) {
-	this.emailId = emailId;
-}
+	public void setName(String name) {
+		this.name = name;
+	}
 
-public String getUsername() {
-	return username;
-}
+	public String getEmailId() {
+		return emailId;
+	}
 
-public void setUsername(String username) {
-	this.username = username;
-}
+	public void setEmailId(String emailId) {
+		this.emailId = emailId;
+	}
 
-public String getPassword() {
-	return password;
-}
+	public String getUsername() {
+		return username;
+	}
 
-public void setPassword(String password) {
-	this.password = password;
-}
+	public void setUsername(String username) {
+		this.username = username;
+	}
 
-public Set<Recipe> getRecipes() {
-	return recipes;
-}
+	public String getPassword() {
+		return password;
+	}
 
-public void setRecipes(Set<Recipe> recipes) {
-	this.recipes = recipes;
-}
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
-@Override
-public boolean equals(Object o) {
-	if (this == o) return true;
-	if (o == null || getClass() != o.getClass()) return false;
-	User user = (User) o;
-	return Objects.equals(id, user.id);
-}
+	public Set<Recipe> getRecipes() {
+		return recipes;
+	}
 
-@Override
-public int hashCode() {
-	return Objects.hash(id);
-}
+	public void setRecipes(Set<Recipe> recipes) {
+		this.recipes = recipes;
+	}
+
+	public Set<Cart> getCart() {
+		return cart;
+	}
+
+	public void setCart(Set<Cart> cart) {
+		this.cart = cart;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		User user = (User) o;
+		return Objects.equals(id, user.id);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
 }
