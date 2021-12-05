@@ -23,7 +23,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ConcurrentModel;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -247,7 +246,7 @@ public class RegisteredController {
 	public String saveProfile(User user, Model model, Authentication authentication, @RequestParam("image") MultipartFile multipartFile) throws IOException {
 		String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
 		User u = userRepository.findByUsername(authentication.getName());
-		u.setPhoto(u.getId()+"/"+fileName);
+		u.setPhoto(u.getId() + "/" + fileName);
 
 		String uploadDir = "user-photos/" + u.getId();
 
@@ -391,8 +390,8 @@ public class RegisteredController {
 		String recipeId = request.getParameter("recipeId");
 		String ingredientId = request.getParameter("ingredientId");
 		User user = userRepository.findByUsername(authentication.getName());
-		Ingredient ingredient=ingredientRepository.findById(Integer.parseInt(ingredientId));
-		Cart cart=new Cart(ingredient,user);
+		Ingredient ingredient = ingredientRepository.findById(Integer.parseInt(ingredientId));
+		Cart cart = new Cart(ingredient, user);
 		cartRepository.save(cart);
 
 		Recipe recipe = recipeRepository.findById(Integer.parseInt(recipeId));
@@ -406,17 +405,17 @@ public class RegisteredController {
 	}
 
 	@PostMapping(value = "/delete-cart")
-	public String delCart(HttpServletRequest request,Model model,Authentication authentication){
-		String cartId= request.getParameter("cartId");
+	public String delCart(HttpServletRequest request, Model model, Authentication authentication) {
+		String cartId = request.getParameter("cartId");
 		cartRepository.delete(cartRepository.findById(Integer.parseInt(cartId)));
-		return viewCart(model,authentication);
+		return viewCart(model, authentication);
 	}
 
-	@RequestMapping({ "/download-shopping-list"})
-	public void getAllEmployeesInCsv(HttpServletResponse servletResponse,Authentication authentication) throws IOException {
+	@RequestMapping({"/download-shopping-list"})
+	public void getAllEmployeesInCsv(HttpServletResponse servletResponse, Authentication authentication) throws IOException {
 		servletResponse.setContentType("text/csv");
-		servletResponse.addHeader("Content-Disposition","attachment; filename=\"ingredientsToShop.csv\"");
-		User u=userRepository.findByUsername(authentication.getName());
-		csvExportService.writeEmployeesToCsv(servletResponse.getWriter(),Integer.toString(u.getId()));
+		servletResponse.addHeader("Content-Disposition", "attachment; filename=\"ingredientsToShop.csv\"");
+		User u = userRepository.findByUsername(authentication.getName());
+		csvExportService.writeEmployeesToCsv(servletResponse.getWriter(), Integer.toString(u.getId()));
 	}
 }

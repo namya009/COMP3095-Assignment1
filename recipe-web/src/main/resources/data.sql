@@ -1,12 +1,12 @@
-INSERT INTO user (id, name, email_id, username, password,photo)
+INSERT INTO user (id, name, email_id, username, password, photo)
 VALUES ('1', 'John Doe', 'johndoe@email.com', 'admin',
-        '$2a$10$bN7OWEvi6rTqJEYbZfDOg.FHmG.xPTDxJR1k9LzsR4O6Nt8zuIKwq','1/admin.png');
-INSERT INTO user (id, name, email_id, username, password,photo)
+        '$2a$10$bN7OWEvi6rTqJEYbZfDOg.FHmG.xPTDxJR1k9LzsR4O6Nt8zuIKwq', '1/admin.png');
+INSERT INTO user (id, name, email_id, username, password, photo)
 VALUES ('2', 'Pruthvi Soni', 'pruthvisoni@gmail.com', 'pru',
-        '$2a$10$A0DiYyivrs5ErT2d/fk5r.aSfUApJhHdxL3O8blzxsMdMeFK6DhK6','2/Pru.png');
-INSERT INTO user (id, name, email_id, username, password,photo)
+        '$2a$10$A0DiYyivrs5ErT2d/fk5r.aSfUApJhHdxL3O8blzxsMdMeFK6DhK6', '2/Pru.png');
+INSERT INTO user (id, name, email_id, username, password, photo)
 VALUES ('3', 'Pruthvi2 Soni', 'pruthvisoni2@gmail.com', 'admin2',
-        '$2a$10$bN7OWEvi6rTqJEYbZfDOg.FHmG.xPTDxJR1k9LzsR4O6Nt8zuIKwq','0/default.png');
+        '$2a$10$bN7OWEvi6rTqJEYbZfDOg.FHmG.xPTDxJR1k9LzsR4O6Nt8zuIKwq', '0/default.png');
 
 INSERT INTO recipe (id, recipe_name, prep_time, cook_time, total_time, instruction, date_added, user_id)
 VALUES (1, 'Basic Omelette', 2, 4, 6,
@@ -44,4 +44,5 @@ VALUES (2, '2021-11-10', 2, 1);
 INSERT INTO user_fav_recipe(recipe_id, user_id)
 VALUES (2, 1);
 
-INSERT INTO cart(ingredient_id,user_id) VALUES (1,1)
+INSERT INTO cart(ingredient_id, user_id)
+VALUES (1, 1)

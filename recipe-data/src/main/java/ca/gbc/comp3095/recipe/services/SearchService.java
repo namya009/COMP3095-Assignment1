@@ -56,6 +56,7 @@ public class SearchService {
 		String id2 = Long.toString(id);
 		return searchRepository.searchCart(id2);
 	}
+
 	public List<Meal> SearchMealForCart(int id) {
 		return searchRepository.searchMealForCart(id);
 	}

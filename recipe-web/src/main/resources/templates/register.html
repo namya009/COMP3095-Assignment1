@@ -6,158 +6,56 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
             crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
-          integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
     <meta charset="UTF-8">
-    <title>Register User</title>
-    <style>
-        html, body {
-            display: flex;
-            justify-content: center;
-            height: 100%;
-        }
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/sign-in/">
+    <link href="https://getbootstrap.com/docs/5.1/examples/sign-in/signin.css" rel="stylesheet">
 
-        body, div, h1, form, input, p {
-            padding: 0;
-            margin: 0;
-            outline: none;
-            font-family: Roboto, Arial, sans-serif;
-            font-size: 16px;
-            color: #666;
-        }
-
-        h1 {
-            padding: 10px 0;
-            font-size: 32px;
-            font-weight: 300;
-            text-align: center;
-        }
-
-        p {
-            font-size: 12px;
-        }
-
-        hr {
-            color: #a9a9a9;
-            opacity: 0.3;
-        }
-
-        .main-block {
-            min-width: 360px;
-            padding: 10px 0;
-            margin: auto;
-            border-radius: 5px;
-            border: solid 1px #ccc;
-            box-shadow: 1px 2px 5px rgba(0, 0, 0, .31);
-            background: #ebebeb;
-        }
-
-        form {
-            margin: 0 30px;
-        }
-
-        label#icon {
-            margin: 0;
-            border-radius: 5px 0 0 5px;
-        }
-
-        #icon {
-            display: inline-block;
-            padding: 9px 15px;
-            box-shadow: 1px 2px 5px rgba(0, 0, 0, .09);
-            background: #1c87c9;
-            color: #fff;
-            text-align: center;
-        }
-
-        input {
-            border-radius: 0 5px 5px 0;
-            height: 44px;
-            width: 252px;
-        }
-
-        button {
-            width: 100%;
-            padding: 10px 0;
-            margin: 10px auto;
-            border-radius: 5px;
-            border: none;
-            background: #1c87c9;
-            font-size: 14px;
-            font-weight: 600;
-            color: #fff;
-        }
-
-        button:hover {
-            background: #26a9e0;
-        }
-
-        table {
-            margin: 0;
-            width: 100%;
-        }
-    </style>
+    <title>Register</title>
 </head>
-<body>
-<div class="main-block">
-    <h1>Registration</h1>
+<body class="text-center">
+<main class="form-signin">
     <form th:action="@{/save}" th:object="${user}" method="post">
-        <hr>
-        <table>
-            <tr>
-                <td>
-                    <label id="icon" for="name"><i class="fas fa-user"></i></label>
-                </td>
-                <td>
-                    <input id="name" name="name" type="text" class="form-control" th:field="*{name}" th:required="true"
-                           th:oninvalid="this.setCustomValidity('Name cannot be blank')"
-                           th:oninput="this.setCustomValidity('')" placeholder="Enter Name"/>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label id="icon" for="name"><i class="fas fa-envelope"></i></label>
-                </td>
-                <td>
-                    <input id="name" name="name" type="email" class="form-control" th:field="*{emailId}"
-                           th:required="true"
-                           th:oninvalid="this.setCustomValidity('EmailId cannot be blank')"
-                           th:oninput="this.setCustomValidity('')"/>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label id="icon" for="name"><i class="fas fa-user"></i></label>
-                </td>
-                <td>
-                    <input id="name" name="name" type="text" class="form-control" th:field="*{username}"
-                           th:required="true"
-                           th:oninvalid="this.setCustomValidity('Username cannot be blank')"
-                           th:oninput="this.setCustomValidity('')"/>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label id="icon" for="name"><i class="fas fa-unlock-alt"></i></label>
-                </td>
-                <td>
-                    <input id="name" name="name" type="password" class="form-control" th:field="*{password}"
-                           th:required="true"
-                           th:oninvalid="this.setCustomValidity('Password cannot be blank')"
-                           th:oninput="this.setCustomValidity('')"/>
-                </td>
-            </tr>
-        </table>
-        <hr>
-        <h4 th:utext="${err}"></h4>
+        <img class="mb-4" src="https://icons.getbootstrap.com/assets/icons/person-square.svg" alt="" width="70"
+             height="55">
+        <div th:if="${err}">
+            <div class="alert alert-danger" th:utext="${err}"></div>
+        </div>
+        <h1 class="h3 mb-3 fw-normal" th:text="'Register'"></h1>
+
+        <div class="form-floating">
+            <input id="name" name="name" type="text" class="form-control" th:field="*{name}" th:required="true"
+                   th:oninvalid="this.setCustomValidity('Name cannot be blank')"
+                   th:oninput="this.setCustomValidity('')" placeholder="Enter Name"/>
+            <label for="name" th:text="'Name'"></label>
+        </div>
+        <div class="form-floating">
+            <input id="emailid" name="emailid" type="email" class="form-control" th:field="*{emailId}"
+                   th:required="true" placeholder="EmailId"
+                   th:oninvalid="this.setCustomValidity('EmailId cannot be blank')"
+                   th:oninput="this.setCustomValidity('')"/>
+            <label for="emailid" th:text="'Email Id'"></label>
+        </div>
+        <div class="form-floating">
+            <input id="username" name="username" type="text" class="form-control" th:field="*{username}"
+                   th:required="true" placeholder="Username"
+                   th:oninvalid="this.setCustomValidity('Username cannot be blank')"
+                   th:oninput="this.setCustomValidity('')"/>
+            <label for="username" th:text="'Username'"></label>
+        </div>
+        <div class="form-floating">
+            <input id="password" name="password" type="password" class="form-control" th:field="*{password}"
+                   th:required="true"
+                   th:oninvalid="this.setCustomValidity('Password cannot be blank')"
+                   th:oninput="this.setCustomValidity('')"/>
+            <label for="password" th:text="'Password'"></label>
+        </div>
         <button class="w-100 btn btn-lg btn-dark" type="submit" th:text="'Register'"></button>
     </form>
-    <hr>
+    <br>
     <form th:action="@{/login}">
         <button class="w-100 btn btn-lg btn-dark" type="submit" th:text="'Go Back'"></button>
     </form>
-
-</div>
+</main>
 </body>
 </html>

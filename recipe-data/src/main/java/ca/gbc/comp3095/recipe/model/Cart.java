@@ -38,6 +38,7 @@ public class Cart {
 		this.ingredient = ingredient;
 		this.user = user;
 	}
+
 	public Cart(Ingredient ingredient, User user) {
 		this.ingredient = ingredient;
 		this.user = user;

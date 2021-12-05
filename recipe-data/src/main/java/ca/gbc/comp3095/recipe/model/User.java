@@ -50,7 +50,6 @@ public class User {
 	private String photo;
 
 
-
 	public User() {
 	}
 
@@ -136,6 +135,7 @@ public class User {
 	public void setCart(Set<Cart> cart) {
 		this.cart = cart;
 	}
+
 	public String getPhoto() {
 		return photo;
 	}
@@ -143,12 +143,14 @@ public class User {
 	public void setPhoto(String photo) {
 		this.photo = photo;
 	}
+
 	@Transient
 	public String getPhotosImagePath() {
 		if (photo == null) return null;
 
 		return "/user-photos/" + photo;
 	}
+
 	@Override
 	public boolean equals(Object o) {
 		if (this == o) return true;
