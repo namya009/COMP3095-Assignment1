@@ -4,33 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f7425b1-4759-4ba3-ae95-3d3cc965e3d3" name="Changes" comment="format">
-      <change afterPath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/repositories/CartRepository.java" afterDir="false" />
+    <list default="true" id="5f7425b1-4759-4ba3-ae95-3d3cc965e3d3" name="Changes" comment="all doe except export to csv">
+      <change afterPath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/config/mvcConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/services/CSVExportService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/recipe-web/src/main/java/ca/gbc/comp3095/recipe/controllers/FileUploadUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-photos/0/default.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-photos/1/admin.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user-photos/2/Pru.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/config/MyUserDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/config/MyUserDetails.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/config/UserDetailsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/config/UserDetailsServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/config/WebSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/model/Cart.java" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/model/Cart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/model/Ingredient.java" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/model/Ingredient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/model/Meal.java" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/model/Meal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/model/Recipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/model/Recipe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipe-data/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-data/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/repositories/IngredientRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/repositories/IngredientRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/repositories/MealRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/repositories/MealRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/repositories/RecipeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/repositories/RecipeRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/repositories/SearchRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/repositories/SearchRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/repositories/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/services/SearchService.java" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/services/SearchService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/services/ViewService.java" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/services/ViewService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe-web/src/main/java/ca/gbc/comp3095/recipe/RecipeApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-web/src/main/java/ca/gbc/comp3095/recipe/RecipeApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/repositories/CartRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-data/src/main/java/ca/gbc/comp3095/recipe/repositories/CartRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/recipe-web/src/main/java/ca/gbc/comp3095/recipe/controllers/IndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-web/src/main/java/ca/gbc/comp3095/recipe/controllers/IndexController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/recipe-web/src/main/java/ca/gbc/comp3095/recipe/controllers/RegisteredController.java" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-web/src/main/java/ca/gbc/comp3095/recipe/controllers/RegisteredController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/recipe-web/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-web/src/main/resources/data.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe-web/src/main/resources/templates/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-web/src/main/resources/templates/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe-web/src/main/resources/templates/registered/plan-meal.html" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-web/src/main/resources/templates/registered/plan-meal.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipe-web/src/main/resources/templates/registered/edit-profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-web/src/main/resources/templates/registered/edit-profile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/recipe-web/src/main/resources/templates/registered/view-cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-web/src/main/resources/templates/registered/view-cart.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe-web/src/main/resources/templates/registered/view-recipe.html" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-web/src/main/resources/templates/registered/view-recipe.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipe-web/src/test/java/ca/gbc/comp3095/recipe/RecipeApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-web/src/test/java/ca/gbc/comp3095/recipe/RecipeApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipe-web/src/main/resources/templates/registered/view-profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/recipe-web/src/main/resources/templates/registered/view-profile.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,8 +32,8 @@
       <list>
         <option value="JpaEntity" />
         <option value="HTML File" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -102,9 +92,17 @@
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="ca.gbc.comp3095.recipe.controllers" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Study\comp3095_Web java\COMP3095-Assignment1\recipe-web\src\main\resources\templates\new" />
       <recent name="C:\Study\comp3095_Web java\COMP3095-Assignment1\recipe-data\src\main\java\ca\gbc\comp3095\recipe" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Study\comp3095_Web java\COMP3095-Assignment1\user-photos\1" />
+      <recent name="C:\Study\comp3095_Web java\COMP3095-Assignment1\user-photos\0" />
+      <recent name="C:\Study\comp3095_Web java\COMP3095-Assignment1\recipe-web\src\main\resources\Images" />
     </key>
   </component>
   <component name="RunManager">
@@ -167,7 +165,7 @@
       <workItem from="1638474144456" duration="7644000" />
       <workItem from="1638567628079" duration="5365000" />
       <workItem from="1638651287945" duration="390000" />
-      <workItem from="1638651708617" duration="26541000" />
+      <workItem from="1638651708617" duration="35676000" />
     </task>
     <task id="LOCAL-00001" summary="half done">
       <created>1636139354252</created>
@@ -281,7 +279,14 @@
       <option name="project" value="LOCAL" />
       <updated>1638665854715</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="all doe except export to csv">
+      <created>1638689721057</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1638689721057</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -424,14 +429,15 @@
     <MESSAGE value="edit profile done" />
     <MESSAGE value="update Ingredient" />
     <MESSAGE value="format" />
-    <option name="LAST_COMMIT_MESSAGE" value="format" />
+    <MESSAGE value="all doe except export to csv" />
+    <option name="LAST_COMMIT_MESSAGE" value="all doe except export to csv" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/recipe-web/src/main/java/ca/gbc/comp3095/recipe/controllers/RegisteredController.java</url>
-          <line>117</line>
+          <line>129</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>

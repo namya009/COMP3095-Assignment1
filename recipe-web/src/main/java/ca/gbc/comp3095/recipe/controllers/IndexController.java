@@ -52,6 +52,7 @@ public class IndexController {
 		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 		String encodedPassword = passwordEncoder.encode(user.getPassword());
 		user.setPassword(encodedPassword);
+		user.setPhoto("0/default.png");
 		userRepository.save(user);
 		return "/login";
 	}

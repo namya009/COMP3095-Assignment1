@@ -16,6 +16,7 @@ package ca.gbc.comp3095.recipe.controllers;
 
 import ca.gbc.comp3095.recipe.model.*;
 import ca.gbc.comp3095.recipe.repositories.*;
+import ca.gbc.comp3095.recipe.services.CSVExportService;
 import ca.gbc.comp3095.recipe.services.SearchService;
 import ca.gbc.comp3095.recipe.services.ViewService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,12 +25,17 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ConcurrentModel;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
@@ -59,6 +65,12 @@ public class RegisteredController {
 
 	@Autowired
 	CartRepository cartRepository;
+
+	private final CSVExportService csvExportService;
+
+	public RegisteredController(CSVExportService csvExportService) {
+		this.csvExportService = csvExportService;
+	}
 
 	@RequestMapping({"", "/", "index", "index.html"})
 	public String index(Model model, Authentication authentication) {
@@ -232,14 +244,21 @@ public class RegisteredController {
 	}
 
 	@PostMapping(value = "/save-profile")
-	public String saveProfile(User user, Model model, Authentication authentication) {
+	public String saveProfile(User user, Model model, Authentication authentication, @RequestParam("image") MultipartFile multipartFile) throws IOException {
+		String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
+		User u = userRepository.findByUsername(authentication.getName());
+		u.setPhoto(u.getId()+"/"+fileName);
+
+		String uploadDir = "user-photos/" + u.getId();
+
+		FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
+
 		if (userRepository.findByUsername(user.getUsername()) != null) {
 			if (!Objects.equals(user.getUsername(), authentication.getName())) {
 				model.addAttribute("err", "The username <b>" + user.getUsername() + "</b> is already in use.");
 				return "/registered/edit-profile";
 			}
 		}
-		User u = userRepository.findByUsername(authentication.getName());
 
 		String name = user.getName();
 		u.setName(name.substring(0, 1).toUpperCase() + name.substring(1));
@@ -391,5 +410,13 @@ public class RegisteredController {
 		String cartId= request.getParameter("cartId");
 		cartRepository.delete(cartRepository.findById(Integer.parseInt(cartId)));
 		return viewCart(model,authentication);
+	}
+
+	@RequestMapping({ "/download-shopping-list"})
+	public void getAllEmployeesInCsv(HttpServletResponse servletResponse,Authentication authentication) throws IOException {
+		servletResponse.setContentType("text/csv");
+		servletResponse.addHeader("Content-Disposition","attachment; filename=\"ingredientsToShop.csv\"");
+		User u=userRepository.findByUsername(authentication.getName());
+		csvExportService.writeEmployeesToCsv(servletResponse.getWriter(),Integer.toString(u.getId()));
 	}
 }

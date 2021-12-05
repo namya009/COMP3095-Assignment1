@@ -26,20 +26,24 @@
             <td th:text="${cartStat.count}"></td>
             <td th:text="${cart.ingredient.item}"></td>
             <td th:text="${cart.ingredient.recipe.recipeName}"></td>
-            <td></td>
             <td>
                 <form th:action="@{/registered/delete-cart(cartId=${cart.id})}" method="post">
-                    <button class="btn btn-lg btn-dark" type="submit" th:text="'Remove Item'"></button>
+                    <button class="btn btn-dark" type="submit" th:text="'Remove Item'"></button>
                 </form>
             </td>
         </tr>
         </tbody>
     </table>
+    <form th:action="@{/registered/download-shopping-list}" method="post">
+        <button class="btn btn-lg btn-dark" type="submit" th:text="'Download Shopping List As CSV'"></button>
+    </form>
 </div>
 <div class="container p-5 -mt-3" th:if="${count2}==0">
     <h4 th:text="${message2}"></h4>
 </div>
+
 <div th:replace="/registered/plan-meal.html::plan-table">
 </div>
+
 </body>
 </html>

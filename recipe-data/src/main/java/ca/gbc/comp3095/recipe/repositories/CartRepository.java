@@ -19,5 +19,5 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface CartRepository extends CrudRepository<Cart, Long> {
 
-	Cart findById(int parseInt);
+	Cart findById(int id);
 }
